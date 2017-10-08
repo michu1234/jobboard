@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./src/assets/css/fontello.css">
   <link rel="stylesheet" href="./src/assets/css/normalize.css">
   <link rel="stylesheet" href=".\src\assets\css\style.css">
   <title>Job Board Website</title>
@@ -13,25 +14,34 @@
 <body>
   <!-- HEADER -->
   <header>
-    <div class="header__video">
-      <video width="100%" src="./src/assets/652266352.mp4" autoplay="true"></video>
-    </div>
+    <div class="nav__bar">
+      <div class="header__video">
+        <video width="100%" src="./src/assets/652266352.mp4" autoplay="true" loop="true"></video>
+      </div>
       <div class="header__image">
         <img class="header__logo" src="./src/assets/mainlogo.png" alt="" class="logo">
       </div>
       <nav>
-      <ul class="nav__list">
+        <ul class="nav__list">
           <li class="nav__list-item">Home</li>
           <li class="nav__list-item">Position</li>
           <li class="nav__list-item">Resume</li>
           <li class="nav__list-item">Company</li>
           <li class="nav__list-item">Pages</li>
-      </ul>
-    </nav>
-    <p></p>
-    <div class="header__button">
-      <button class="btn">New Add</button>
+        </ul>
+      </nav>
+      <div class="header__button">
+        <button class="btn">New Add</button>
+      </div>
     </div>
+    <h1>We offer 1,259 job vacancies right now!</h1>
+    <p class="header__subtitle">Find your desire one in a minute</p>
+
+    <form action="">
+      <input type="text">
+      <input type="text">
+      <button class="btn btn__form">Find jobs</button>
+    </form>
   </header>
   <!-- NEWEST ADDS -->
   <section class="newest">
@@ -48,56 +58,62 @@
 
   <!-- WORKFLOW SECTION -->
 
-  <section class="workflow">
-    <div>
-      <h3></h3>
-      <h2></h2>
+  <section class="workflow container">
+    <div class="wokflow__content">
+      <h3>WORKFLOW</h3>
+      <h2>How It Works</h2>
       <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid mollitia delectus laborum facilis similique accusamus
         perspiciatis eos ducimus quam laudantium libero alias quibusdam, neque corporis totam rem voluptatum sint harum!
         Expedita excepturi illo ea. Aliquid obcaecati sunt quas reprehenderit ab sequi assumenda aspernatur asperiores necessitatibus,
         exercitationem a animi unde doloribus?</p>
-      <button>LEARN MORE</button>
+      </br>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid quis possimus placeat fugit dicta fuga ipsam. Omnis similique, excepturi, vero placeat fugiat dolorem nostrum, accusamus deserunt vel consectetur ex adipisci consequuntur quam veritatis ab neque illo labore hic sunt fuga tempora iusto! Aliquid, voluptatum culpa. Laudantium nam error mollitia eum sint, ex nostrum illum distinctio totam consequatur molestiae, pariatur esse voluptatibus unde quaerat. Quaerat dolore maxime accusantium sunt eligendi quo necessitatibus assumenda odit numquam quis cum quos inventore reprehenderit sit quibusdam nemo officiis aut provident natus, tempore sint! Molestias quis nulla necessitatibus sapiente dolor nihil eaque repellat inventore sed incidunt a laudantium numquam impedit quia eos, eum vitae rem error labore veniam quos quam voluptatum odit ipsa.</p>
+      <button class="btn btn__medium">LEARN MORE</button>
     </div>
     <div>
-      <img src="" alt="">
+      <img src="./src/assets/phone.png" alt="">
     </div>
   </section>
 
   <!-- CATEGORIES SECTION -->
   <section class="categories">
-    <h3></h3>
-    <h2></h2>
-    <p></p>
-    <article>
-      <img src="" alt="">
-      <h4>Technology</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, tenetur!</p>
-    </article>
-    <article>
-      <img src="" alt="">
-      <h4>Technology</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, tenetur!</p>
-    </article>
-    <article>
-      <img src="" alt="">
-      <h4>Technology</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, tenetur!</p>
-    </article>
-    <article>
-      <img src="" alt="">
-      <h4>Technology</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, tenetur!</p>
-    </article>
-    <article>
-      <img src="" alt="">
-      <h4>Technology</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, tenetur!</p>
-    </article>
-    <article>
-      <img src="" alt="">
-      <h4>Technology</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, tenetur!</p>
-    </article>
+    <div class="container">
+      <h3>CATEGORIES</h3>
+      <h2>Popular Categories</h2>
+      <p>Here's the most popular categories</p>
+      <div class="categories__content">
+        <article>
+          <img src="" alt="">
+          <h4>Technology</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, tenetur!</p>
+        </article>
+        <article>
+          <img src="" alt="">
+          <h4>Technology</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, tenetur!</p>
+        </article>
+        <article>
+          <img src="" alt="">
+          <h4>Technology</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, tenetur!</p>
+        </article>
+        <article>
+          <img src="" alt="">
+          <h4>Technology</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, tenetur!</p>
+        </article>
+        <article>
+          <img src="" alt="">
+          <h4>Technology</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, tenetur!</p>
+        </article>
+        <article>
+          <img src="" alt="">
+          <h4>Technology</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, tenetur!</p>
+      </div>
+      </article>
+    </div>
   </section>
 
   <!-- SECTION SUBSCRIBE -->
@@ -143,6 +159,6 @@
 
   <script src="/dist/build.js"></script>
 </body>
+
 </html>
 
-http://lorempixel.com/400/200/sports
