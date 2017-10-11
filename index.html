@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="src/assets/css/normalize.css">
-  <link rel="stylesheet" href="src/assets/fontello.css">
+  <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <link rel="stylesheet" href="src/assets/css/style.css">
   <title>Job Board Website</title>
 </head>
@@ -23,25 +23,26 @@
       </div>
       <nav>
         <ul class="nav__list">
-          <li class="nav__list-item">Home</li>
-          <li class="nav__list-item">Position</li>
-          <li class="nav__list-item">Resume</li>
-          <li class="nav__list-item">Company</li>
-          <li class="nav__list-item">Pages</li>
+          <li class="nav__list-item"><a href="">Home</a></li>
+          <li class="nav__list-item"><a href="">Position</a></li>
+          <li class="nav__list-item"><a href="">Resume</a></li>
+          <li class="nav__list-item"><a href="">Company</a></li>
+          <li class="nav__list-item"><a href="">Pages</a></li>
         </ul>
       </nav>
       <div class="header__button">
-        <button class="btn">New Add</button>
+        <button class="btn font--white">New Add</button>
       </div>
     </div>
     <h1>We offer <span class="font--alert">1,259 job</span> vacancies right now!</h1>
     <p class="header__subtitle">Find your desire one in a minute</p>
 
     <form action="">
-      <input type="text">
-      <input type="text">
+      <label class="ion-ios-search-strong" for="job"></label><input id="job" type="text" placeholder="Job title, skills or company...">
+      <label class="ion-ios-location-outline" for="city"></label><input id="city" type="text" placeholder="City, state or zip...">
       <button class="btn btn__form">Find jobs</button>
     </form>
+    <p class="header__description font--neutral">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi doloribus at excepturi deserunt sint tempora adipisci nostrum suscipit ipsa assumenda? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni assumenda alias dicta pariatur aliquid.</p>
   </header>
   <!-- NEWEST ADDS -->
   <section class="newest">
@@ -80,35 +81,35 @@
     <div class="container">
       <h3 class="font--neutral">CATEGORIES</h3>
       <h2>Popular Categories</h2>
-      <p>Here's the most popular categories</p>
+      <p class="categories__description">Here's the most popular categories</p>
       <div class="categories__content">
         <article>
-          <i class="icon-briefcase"></i>
+          <i class="ion-android-plane"></i>
           <h4>Technology</h4>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, tenetur!</p>
         </article>
         <article>
-          <i class="icon-briefcase"></i>
+          <i class="ion-android-restaurant"></i>
           <h4>Technology</h4>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, tenetur!</p>
         </article>
         <article>
-          <i class="icon-glasses"></i>
+          <i class="ion-android-car"></i>
           <h4>Technology</h4>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, tenetur!</p>
         </article>
         <article>
-          <i class="icon-briefcase"></i>
+          <i class="ion-medkit"></i>
           <h4>Technology</h4>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, tenetur!</p>
         </article>
         <article>
-          <i class="icon-briefcase"></i>
+          <i class="ion-scissors"></i>
           <h4>Technology</h4>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, tenetur!</p>
         </article>
         <article>
-          <i class="icon-briefcase"></i>
+          <i class="ion-laptop"></i>
           <h4>Technology</h4>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, tenetur!</p>
       </div>
@@ -121,11 +122,12 @@
   <section class="subscribe">
     <div class="container">
       <h2>Subscribe</h2>
-      <h3>Get weekly top new jobs delivered to your inbox</h3>
+      <h3 class="subscribe--subtitle">Get weekly top new jobs delivered to your inbox</h3>
       <form class="subscribe__form" action="">
         <input type="email" required placeholder="Your email address">
         <button class="btn btn__form">SUBSCRIBE</button>
       </form>
+      <p class="subscribe__description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias est dolorem consequatur, explicabo quae voluptates laudantium. Magnam culpa praesentium vero excepturi sunt. Enim aliquid voluptas dolor et quos, asperiores ea corporis adipisci qui, sunt harum recusandae nihil. Delectus, similique officia?</p>
     </div>
   </section>
 
@@ -134,7 +136,7 @@
   <footer>
     <aside>
       <h3>About</h3>
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, facilis minus atque ullam voluptatibus beatae voluptates. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem, fugiat.
+      <p class="font--aside">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, facilis minus atque ullam voluptatibus beatae voluptates. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem, fugiat. Lorem ipsum dolor sit. lorem10
         Libero veniam ab quod?</p>
       </aside>
     <aside>
@@ -145,6 +147,16 @@
         <li>Help center</li>
         <li>Privacy policy</li>
         <li>Contact us</li>
+      </ul>
+    </aside>
+    <aside>
+      <h3>Company</h3>
+      <ul class="footer__links">
+        <li>Everything about us</li>
+        <li>How it works today</li>
+        <li>Help center</li>
+        <li>Privacy policy</li>
+        <li>Contact us NOW!</li>
       </ul>
     </aside>
     <aside>
@@ -160,15 +172,17 @@
   </footer>
   <div class="footer__bar">
     <hr>
-    <p>Copyrights © 2017 All Rights Reserved by davedeveloper.eu</p>
-    <ul class="social">
-      <li class="social__icon">3</li>
-      <li class="social__icon">3</li>
-      <li class="social__icon">3</li>
-      <li class="social__icon">3</li>
-      <li class="social__icon">3</li>
-      <li class="social__icon">3</li>
-    </ul>
+    <p class="footer__copyright">Copyrights © 2017 All Rights Reserved | davedeveloper.eu</p>
+    <div>
+      <ul class="social">
+        <li class="social__icon"><i class="ion-social-octocat"></i></li>
+        <li class="social__icon"><i class="ion-social-linkedin-outline"></i></li>
+        <li class="social__icon"><i class="ion-social-rss-outline"></i></li>
+        <li class="social__icon"><i class="ion-social-tumblr-outline"></i></li>
+        <li class="social__icon"><i class="ion-social-youtube-outline"></i></li>
+        <li class="social__icon"><i class="ion-social-instagram-outline"></i></li>
+      </ul>
+    </div>
   </div>
 
 
