@@ -40,9 +40,14 @@
 /***********/
 
 @font-face {
-    font-family: 'Mukta';
-    src: url('../fonts/Mukta-Regular.ttf')
+    font-family: 'Raleway';
+    src: url('../fonts/Raleway-Regular.ttf')
 }
+@font-face {
+    font-family: 'Raleway-Light';
+    src: url('../fonts/Raleway-Light.ttf')
+}
+
 
 
 /*BASE*/
@@ -52,7 +57,7 @@
 
 body {
     background-color: rgb(255, 255, 255);
-    font-family: 'Mukta';
+    font-family: 'Raleway';
     color: rgb(0, 53, 97);
 }
 
@@ -61,11 +66,11 @@ header {
     flex-direction: column;
     max-width: 100%;
     height: 100vh;
-    background-image: url('http://www.philrawlings.com/images/map%20background.png');
+    /* background-image: url('http://www.philrawlings.com/images/map%20background.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    background-attachment: fixed;
+    background-attachment: fixed; */
 }
 
 nav {
@@ -75,7 +80,7 @@ nav {
 
 h1 {
     align-self: center;
-    margin: auto auto 20px auto;
+    margin: 25vh auto 20px auto;
 }
 
 p {
@@ -105,9 +110,9 @@ input {
     height: 50px;
     width: 500px;
     margin-right: -4px;
-    border-color: rgb(226, 226, 226);
+    border: .3px solid rgb(204, 204, 204);
     outline: none;
-    box-shadow: 0 0 5px 1px rgb(255, 255, 255);
+    /* box-shadow: 0 0 5px 1px rgb(255, 255, 255); */
     border-width: 1px;
     padding-left: 15px;
     color: rgb(185, 185, 185);
@@ -143,6 +148,16 @@ input:first-child {
 
 .categories {
     background-color: #fafafa;
+    padding: 40px 0;
+}
+
+.subscribe {
+    display: flex;
+    background-image: url('../round.png');
+    background-repeat: repeat;
+    max-height: 300px;
+    text-align: center;
+    padding: 30px 0;
 }
 
 /*COMPONENT*/
@@ -162,6 +177,7 @@ input:first-child {
 .categories__content {
     display: flex;
     flex-wrap: wrap;
+    padding: 20px 0;
 }
 
 
@@ -213,7 +229,7 @@ input:first-child {
 
 .btn__form {
     height: 54px;
-    width: 100px;
+    width: 130px;
     margin-left: -16px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
@@ -233,9 +249,15 @@ article {
    
 }
 
+.subscribe__form {
+    margin: auto;
+    line-height: 120px;
+    
+}
+
 /*modifier*/
 /***********/
-.btn__medium {
+.btn--medium {
     max-width: 150px;
     margin: 40px 0 10px 0;
 }
@@ -245,6 +267,9 @@ article {
     margin: 0 auto;
 }
 
+.font--light {
+    font-family: 'Raleway-Light'
+}
 
 
 /*state*/
