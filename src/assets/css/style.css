@@ -97,8 +97,7 @@ ul {
 }
 
 li {
-    display: inline-block;
-    width: 70px;
+ 
 }
 
 form {
@@ -160,6 +159,21 @@ input:first-child {
     padding: 30px 0;
 }
 
+footer {
+    display: flex;
+    background: rgb(49, 49, 49);
+    justify-content: space-around;
+    min-height: 500px;
+    padding-top: 30px;
+}
+
+.footer__bar {
+    text-align: center;
+    display: flex;
+    background: rgb(49, 49, 49);
+    color: white;
+}
+
 /*COMPONENT*/
 
 
@@ -196,6 +210,11 @@ input:first-child {
 
 .header__subtitle {
     align-self: center;
+}
+
+.nav__list-item {
+    display: inline-block;
+    width: 70px;
 }
 
 .btn {
@@ -246,13 +265,30 @@ article {
     padding: 0 4% 10px 4%;
     box-sizing: border-box;
     background-color: #ffffff;
-   
+}
+
+aside {
+    border: 1px solid lightgray;
+    text-align: left;
+    width: 29%;
+    max-height: 330px;
+    margin: 25px auto;
+    padding: 10px 4% 10px 4%;
+    box-sizing: border-box;
+    color: rgb(241, 241, 241);
+}
+aside:nth-child(2){
+    max-width: 300px;
 }
 
 .subscribe__form {
     margin: auto;
     line-height: 120px;
     
+}
+
+hr {
+    width: 100%;
 }
 
 /*modifier*/
