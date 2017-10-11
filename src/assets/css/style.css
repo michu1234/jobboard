@@ -47,6 +47,10 @@
     font-family: 'Raleway-Light';
     src: url('../fonts/Raleway-Light.ttf')
 }
+@font-face {
+    font-family: 'Oswald';
+    src: url('../fonts/Oswald-Regular.ttf')
+}
 
 
 
@@ -54,6 +58,9 @@
 
 
 /***********/
+html {
+    font-size: 62.5%;
+}
 
 body {
     background-color: rgb(255, 255, 255);
@@ -79,13 +86,33 @@ nav {
 }
 
 h1 {
+    font-family: 'Oswald';
+    font-size: 3.7rem;
     align-self: center;
     margin: 25vh auto 20px auto;
+}
+
+h2 {
+    font-size: 2.9rem;
+    margin-top: -5px;
+}
+
+h3 {
+    font-size: 1.6 rem;
+}
+
+h3::before {
+    content: "- ";
+}
+
+h3::after {
+    content: " -";
 }
 
 p {
   margin: 0 auto;
   line-height: 24px;
+  font-size: 1.6rem;
 }
 
 ul {
@@ -137,8 +164,13 @@ input:first-child {
     opacity: .4;
 }
 
+.summary {
+    padding: 20px 0 70px 0;
+}
+
 .workflow {
     display: flex;
+    padding: 20px 0 70px 0;
 }
 
 .newest {
@@ -210,6 +242,7 @@ footer {
 
 .header__subtitle {
     align-self: center;
+    font-size: 2rem;
 }
 
 .nav__list-item {
@@ -249,10 +282,10 @@ footer {
 .btn__form {
     height: 54px;
     width: 130px;
-    margin-left: -16px;
+    padding: 4px 0 9px 0;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    border-color: rgb(116, 116, 116);
+    border-color: rgb(204, 204, 204);
     border-left: none;
 }
 
@@ -307,6 +340,13 @@ hr {
     font-family: 'Raleway-Light'
 }
 
+.font--alert {
+    color: rgb(255, 0, 0);
+}
+
+.font--neutral {
+    color: rgb(211, 211, 211);
+}
 
 /*state*/
 
