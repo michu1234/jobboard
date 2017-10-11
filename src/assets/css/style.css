@@ -74,11 +74,11 @@ header {
     flex-direction: column;
     max-width: 100%;
     height: 100vh;
-    /* background-image: url('http://www.philrawlings.com/images/map%20background.png');
+    background-image: url('http://be.ukwebdev.com/images/dotted-worldmap.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    background-attachment: fixed; */
+    background-attachment: fixed;
 }
 
 nav {

@@ -8,3 +8,6 @@ const app = initializeApp({
     storageBucket: "jobs-board-e7be4.appspot.com",
     messagingSenderId: "738430337246"
   })
+
+  export const db = app.database();
+  export const nameRef = db.ref('names');
