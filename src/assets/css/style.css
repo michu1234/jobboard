@@ -176,7 +176,18 @@ label {
     color: rgb(214, 214, 214);
 }
 
+video {
+    max-height: 100vh;
+}
 
+mark {
+    background: rgb(255, 218, 218);
+}
+
+::selection {
+    color: rgb(0, 217, 255); 
+    background: rgb(161, 0, 0);
+}
 
 
 
@@ -227,14 +238,14 @@ footer {
     justify-content: space-around;
     min-height: 400px;
     padding-top: 30px;
-    border-top: 9px solid rgb(68, 68, 68);
+    border-top: 9px solid rgb(80, 80, 80);
 }
 
 .footer__bar {
     text-align: center;
     display: flex;
     flex-direction: column;
-    background: rgb(49, 49, 49);
+    background: rgb(46, 46, 46);
     color: white;
     padding: 10px 0 0 0;
 }
@@ -483,7 +494,7 @@ article:hover i {
     border: 2px solid #ffffff;
     border-radius: 100%;
     background-color: #ffffff;
-    color: rgb(221, 221, 221);
+    color: rgb(255, 0, 60);
     width: 50%;
     transition: border-radius .1s;
     will-change: auto;
