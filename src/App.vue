@@ -4,17 +4,21 @@
       <h1>{{ msg }}</h1>
       <h2>Recent Jobs</h2>
       <ul class="newest__list">
-        <li class="newest__list-item" v-for="job in jobInfo">
-        <img :src="job.logo" alt=""/>
-        <div class="">
-          <h4>{{job.title}}</h4>
-          <h5>{{job.firm}}</h5>
-        </div>
-        <div class="newest__details">
-          <p>{{job.location}}</p>
-           <p>{{job.details}}</p>
-        </div>
-        </li>
+          <li class="newest__list-item" v-for="job in jobInfo">
+           <a :href="job.url">
+              <div class="newest__logo">
+                <img :src="job.logo" alt="" />
+              </div>
+              <div class="">
+                <h4>{{job.title}}</h4>
+                <h5 class="font--alert">{{job.firm}}</h5>
+              </div>
+              <div class="newest__details">
+                <p>{{job.location}}</p>
+                <p class="newest__badge">{{job.details}}</p>
+              </div>
+              </a>
+          </li>
       </ul>
       <button class="btn btn__medium">Browse all jobs</button>
     </div>
@@ -22,8 +26,9 @@
 </template>
 
 <script>
-
-import {namesRef} from './firebase';
+  import {
+    namesRef
+  } from './firebase';
 
 
   export default {
@@ -31,7 +36,21 @@ import {namesRef} from './firebase';
     data() {
       return {
         msg: 'LATEST',
-        jobInfo: [{logo: "http://thetheme.io/thejobs/assets/img/logo-google.jpg", title: "Full Stack Developer", firm: "Google", location: "Warsaw", details: "Full-Time"}, {logo: "http://thetheme.io/thejobs/assets/img/logo-google.jpg", title: "Full Stack Developer", firm: "Google", location: "Warsaw", details: "Full-Time"}]
+        jobInfo: [{
+          logo: "http://thetheme.io/thejobs/assets/img/logo-google.jpg",
+          title: "Full Stack Developer",
+          firm: "Google",
+          location: "Warsaw",
+          details: "Full-Time",
+          url: "http://google.com"
+        }, {
+          logo: "http://thetheme.io/thejobs/assets/img/logo-google.jpg",
+          title: "Full Stack Developer",
+          firm: "Google",
+          location: "Warsaw",
+          details: "Full-Time",
+          url: "http://google.com"
+        }]
       }
     }
   }
@@ -54,6 +73,15 @@ import {namesRef} from './firebase';
     font-weight: normal;
   }
 
+  h4 {
+    margin-bottom: 0;
+  }
+
+  h5 {
+    font-size: 1.9rem;
+    margin: 0;
+  }
+
   ul {
     list-style-type: none;
     padding: 0;
@@ -61,23 +89,40 @@ import {namesRef} from './firebase';
 
   li {
     margin: 0 10px;
+    outline: 1px solid transparent;
+  }
+
+  li:hover {
+    outline: 1px solid red;
+    transition: .6s;
   }
 
   a {
-    color: #42b983;
+   display: flex;
+   width: 100%;
   }
 
-img {
-width: 70px;
-height: auto;
-}
+  a:hover {
+   text-decoration: none;
+   border: none;
+  }
+
+  button {
+    margin-top: 20px;
+  }
+
+  img {
+    width: 70px;
+    height: auto;
+    margin-top: 10px;
+  }
 
   .newest__list-item {
-    display:  flex;
     border-bottom: 1px dotted lightgray;
   }
 
   .newest__details {
     margin-left: auto;
+    padding: 6px;
   }
 </style>
