@@ -31,19 +31,51 @@
         </ul>
       </nav>
       <div class="header__button">
-        <button class="btn  btn--newadd">New Add</button>
+        <button class="btn  btn--newadd">Post free ad</button>
       </div>
     </div>
     <h1>We offer <span class="font--alert">1,259 job</span> vacancies right now!</h1>
     <p class="header__subtitle">Find your desire one in a minute</p>
 
     <form action="">
-      <label class="ion-ios-search-strong" for="job"></label><input id="job" type="text" placeholder="Job title, skills or company...">
-      <label class="ion-ios-location-outline" for="city"></label><input id="city" type="text" placeholder="City, state or zip...">
+      <label class="ion-ios-search-strong form__label" for="job"></label><input id="job" type="text" placeholder="Job title, skills or company...">
+      <label class="ion-ios-location-outline form__label" for="city"></label><input id="city" type="text" placeholder="City, state or zip...">
       <button class="btn btn--form">Find jobs</button>
     </form>
     <p class="header__description font--neutral">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi doloribus at excepturi deserunt sint tempora adipisci nostrum suscipit ipsa assumenda? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni assumenda alias dicta pariatur aliquid.</p>
   </header>
+
+  <!-- ADD AD -->
+
+<section class="ad">
+  <h2>Post new ad</h2>
+  <form action="" class="ad__form container">
+    <div class="maininfo__form">
+      <div class="form__input">
+        <label class="ad__label" for="">Title</label><input class="ad__input" type="text">
+        <label class="ad__label" for="">Firm</label><input class="ad__input" type="text">
+        <label class="ad__label" for="">Facebook</label><input class="ad__input" type="text">
+        <label class="ad__label" for="">Linkedin</label><input class="ad__input" type="text">
+      </div>
+      <div class="form__checkbox">
+        <input type="checkbox" name="Remote" id=""><label for="">Remote?</label>
+        <input type="checkbox" name="" id="">
+        <input type="checkbox" name="" id="">
+        <input type="checkbox" name="" id="">
+        <input type="checkbox" name="" id="">
+        <input type="checkbox" name="" id="">
+      </div>
+    </div>
+    <label class="ad__label" for="">Description</label><textarea name="" id="" cols="30" rows="10"></textarea>
+    <label class="ad__label" for="">Responsibilities</label><textarea name="" id="" cols="30" rows="10"></textarea>
+    <label class="ad__label" for="">Minimum qualifications</label><textarea name="" id="" cols="30" rows="10"></textarea>
+    <label class="ad__label" for="">Preferred qualifications</label><textarea name="" id="" cols="30" rows="10"></textarea>
+    <label class="ad__label" for="">Benefits</label><textarea name="" id="" cols="30" rows="10"></textarea>
+    <button class="btn btn--medium">Post</button>
+  </form>
+ 
+</section>
+
   <!-- NEWEST ADDS -->
   <section class="newest">
     <!-- VUE COMPONENT -->
