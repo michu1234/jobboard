@@ -143,7 +143,7 @@ form {
     margin: 30px auto auto auto;
 }
 
-input {
+input[type="text"] {
     height: 50px;
     width: 400px;
     margin-right: -4px;
@@ -156,16 +156,19 @@ input {
     position: relative;
 }
 
-input:first-child {
+input[type="text"]:first-child {
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     border-right: none;
+}
+fieldset > input, fieldset > select, fieldset > textarea {
+    margin-bottom: 20px;
 }
 
 
 i {
     font-size: 6.9rem;
-    color: rgb(201, 0, 0);
+    color: #9b4dca;
 }
 
 video {
@@ -174,7 +177,7 @@ video {
 }
 
 mark {
-    background: rgb(255, 218, 218);
+    background: #f1ddff;
 }
 
 ::selection {
@@ -182,11 +185,6 @@ mark {
     background: rgb(161, 0, 0);
 }
 
-input[type="checkbox"] {
-    margin: 0;
-    padding: 0;
-    width: 40px;
-}
 
 
 
@@ -205,15 +203,11 @@ input[type="checkbox"] {
 }
 
 .ad {
-    bottom: 0;
-    right: 0;
-    left: 0;
     top: 0;
     position: absolute;
-    background-color: #ffffff;
     z-index: 10000;
-    text-align: center;
     padding-top: 30px;
+    max-width: 60%;
 }
 
 .summary {
@@ -238,7 +232,7 @@ input[type="checkbox"] {
     display: flex;
     background-image: url('../round.png');
     background-repeat: repeat;
-    max-height: 300px;
+    max-height: 400px;
     text-align: center;
     padding: 30px 0 170px 0;
 }
@@ -283,39 +277,21 @@ footer {
 }
 
 .ad__form {
-    display: flex;
     padding: 30px;
-    flex-direction: column;
-    justify-content: center;
+    padding-right: 50px;
     background-color: #ffffff;
     box-shadow: 0 20px 100px rgb(97, 97, 97),
                 0 50px 100px rgb(146, 146, 146);
     border-radius: 2%;
 }
 
-.maininfo__form {
-    display: flex;
-}
-
-.form__input {
-    display: flex;
-    flex-direction: column;
-}
-
-.form__checkbox {
-    display: flex;
-    flex-direction: column;
-    padding: 20px 0 0 30px;
-}
-
-
-
 /*element*/
 /***********/
 
 .header__logo {
-    max-width: 100px;
+    max-width: 200px;
     padding: 10px 0 0 60px;
+    filter: hue-rotate(-65deg);
 }
 
 .header__button {
@@ -341,9 +317,12 @@ footer {
 .form__label {
     font-size: 4rem;
     position: absolute;
+    display: inline-block;
     z-index: 1;
     padding: 6px;
+    margin-bottom: 10px;
     color: rgb(214, 214, 214);
+    line-height: 0;
 }
 
 .ad__label {
@@ -354,9 +333,6 @@ footer {
     padding: 17px 0 5px 0;
 }
 
-.ad__input {
-    
-}
 
 .btn {
         -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
@@ -387,7 +363,6 @@ footer {
         font-weight:bold;
         font-style:normal;
     height:50px;
-    width:141px;
         text-decoration:none;
         text-align:center;
         text-shadow:1px 1px 0px #ffffff;
@@ -396,12 +371,15 @@ footer {
     .btn:hover {
         background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
         background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
-        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
+
         background-color:#dfdfdf;
     }
     .btn:active {
         position:relative;
         top:1px;
+    }
+    .workflow__image {
+        margin-top: 80px;
     }
 
 
@@ -444,11 +422,8 @@ aside:nth-child(2){
 .subscribe__form {
     margin: auto;
     line-height: 120px;
+    max-width: 70%;
     
-}
-
-.subscribe__description {
-    margin-top: 30px;
 }
 
 hr {
@@ -481,31 +456,10 @@ list-style-type: disc;
 
 /*modifier*/
 /***********/
-.btn--medium {
-    max-width: 150px;
-    margin: 40px 0 10px 0;
-}
-
-
-.btn--form {
-    height: 54px;
-    width: 130px;
-    padding: 0 0 5px 0;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    /* border-color: rgb(204, 204, 204); */
-    border-left: none;
-}
-
-.btn--subscribe {
-    padding: 0 0 1px 0;
-    height: 57px;
-    line-height: 46px;
-}
-
-.btn--newadd {
-   height: 40px;
-   font-family: Arial, sans-serif;
+form .btn--form {
+    height: 50px;
+    background-color: #9b4dca;
+    border-color: #9b4dca;
 }
 
 .container {
@@ -518,7 +472,7 @@ list-style-type: disc;
 }
 
 .font--alert {
-    color: rgb(255, 0, 0);
+    color: #9b4dca;
 }
 
 .font--neutral {
@@ -539,9 +493,20 @@ list-style-type: disc;
     margin-top: 0;
 }
 
+.btn--learnmore {
+    margin-top: 30px;
+}
+
 /*state*/
 /***********/
-
+.fade-enter-active, .fade-leave-active {
+    transition: opacity .5s
+    right: 40px
+  }
+  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0,
+    right: -1000px;
+  }
 
 .btn:hover {
     background-color: #eb675e;
@@ -562,7 +527,7 @@ list-style-type: disc;
 }
 
 article:hover {
-    background: rgb(255, 156, 156);
+    background: #9b4dca;
     transition: background .6s;
     color: #ffffff;
     will-change: auto;
@@ -572,8 +537,8 @@ article:hover i {
     border: 2px solid #ffffff;
     border-radius: 100%;
     background-color: #ffffff;
-    color: rgb(255, 0, 60);
-    width: 50%;
+    color: rgb(195, 195, 195);
+    width: 60%;
     transition: border-radius .1s;
     will-change: auto;
     transform: scale(1.2) rotate(-20deg);

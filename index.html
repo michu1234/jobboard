@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="src/assets/css/normalize.css">
+  <link rel="stylesheet" href="src/assets/css/milligram.css">
   <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <link rel="stylesheet" href="src/assets/css/style.css">
   <title>Job Board Website</title>
@@ -23,58 +24,79 @@
       </div>
       <nav>
         <ul class="nav__list">
-          <li class="nav__list-item"><a href="">Home</a></li>
-          <li class="nav__list-item"><a href="">Position</a></li>
-          <li class="nav__list-item"><a href="">Resume</a></li>
-          <li class="nav__list-item"><a href="">Company</a></li>
-          <li class="nav__list-item"><a href="">Pages</a></li>
+          <li class="nav__list-item">
+            <a href="">Home</a>
+          </li>
+          <li class="nav__list-item">
+            <a href="">Position</a>
+          </li>
+          <li class="nav__list-item">
+            <a href="">Resume</a>
+          </li>
+          <li class="nav__list-item">
+            <a href="">Company</a>
+          </li>
+          <li class="nav__list-item">
+            <a href="">Pages</a>
+          </li>
         </ul>
       </nav>
       <div class="header__button">
-        <button class="btn  btn--newadd">Post free ad</button>
+        <button @:click="showIt=!showIt" class="button postAd">Post free ad</button>
       </div>
     </div>
-    <h1>We offer <span class="font--alert">1,259 job</span> vacancies right now!</h1>
+    <h1>We offer
+      <span class="font--alert">1,259 job</span> vacancies right now!</h1>
     <p class="header__subtitle">Find your desire one in a minute</p>
 
     <form action="">
-      <label class="ion-ios-search-strong form__label" for="job"></label><input id="job" type="text" placeholder="Job title, skills or company...">
-      <label class="ion-ios-location-outline form__label" for="city"></label><input id="city" type="text" placeholder="City, state or zip...">
-      <button class="btn btn--form">Find jobs</button>
+      <label class="ion-ios-search-strong form__label" for="job"></label>
+      <input id="job" type="text" placeholder="Job title, skills or company...">
+      <label class="ion-ios-location-outline form__label" for="city"></label>
+      <input id="city" type="text" placeholder="City, state or zip...">
+      <input class="button-primary btn--form" type="submit" value="Send">
     </form>
-    <p class="header__description font--neutral">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi doloribus at excepturi deserunt sint tempora adipisci nostrum suscipit ipsa assumenda? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni assumenda alias dicta pariatur aliquid.</p>
+    <p class="header__description font--neutral">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi doloribus at excepturi deserunt sint tempora adipisci
+      nostrum suscipit ipsa assumenda? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni assumenda alias dicta
+      pariatur aliquid.</p>
+
+      <section v-if="showIt" class="ad">
+        <h2>Post new ad</h2>
+        <form action="" class="ad__form container">
+          <fieldset>
+            <label for="titleField">Title</label>
+            <input type="text" placeholder="e.g 'Senior front-end developer'" id="titleField">
+            <label for="nameFirm">Firm</label>
+            <input type="text" placeholder="e.g  'Alibaba.com'" id="nameFirm">
+            <label for="Location">Location</label>
+            <input type="text" placeholder="e.g  'China'" id="Location">
+            <label for="ageRangeField">Job type</label>
+            <select id="ageRangeField">
+              <option value="0-13">Permanent</option>
+              <option value="14-17">Temporary</option>
+              <option value="18-23">Contract</option>
+              <option value="24+">Part-time</option>
+            </select>
+            <label for="description">Description</label>
+            <textarea placeholder="You will help XYZ build next-generation web applications like…" id="description"></textarea>
+            <label for="Responsibilities">Responsibilities</label>
+            <textarea placeholder="Build next-generation web applications..." id="Responsibilities"></textarea>
+            <label for="minimumqualifications">Minimum qualifications</label>
+            <textarea placeholder="2 years of relevant work experience..." id="minimumqualifications"></textarea>
+            <label for="preferredqualifications">Preferred qualifications</label>
+            <textarea placeholder="Web application development experience..." id="preferredqualifications"></textarea>
+            <label for="Benefits">Benefits</label>
+            <textarea placeholder="$90,000 - $110,000 / year…" id="Benefits"></textarea>
+            <div class="float-right">
+              <input type="checkbox" id="confirmField">
+              <label class="label-inline" for="confirmField">Send a copy to yourself</label>
+            </div>
+            <input class="button-primary float-left" type="submit" value="Send">
+          </fieldset>
+        </form>
+      </section>
+
   </header>
-
-  <!-- ADD AD -->
-
-<section class="ad">
-  <h2>Post new ad</h2>
-  <form action="" class="ad__form container">
-    <div class="maininfo__form">
-      <div class="form__input">
-        <label class="ad__label" for="">Title</label><input class="ad__input" type="text">
-        <label class="ad__label" for="">Firm</label><input class="ad__input" type="text">
-        <label class="ad__label" for="">Facebook</label><input class="ad__input" type="text">
-        <label class="ad__label" for="">Linkedin</label><input class="ad__input" type="text">
-      </div>
-      <div class="form__checkbox">
-        <input type="checkbox" name="Remote" id=""><label for="">Remote?</label>
-        <input type="checkbox" name="" id="">
-        <input type="checkbox" name="" id="">
-        <input type="checkbox" name="" id="">
-        <input type="checkbox" name="" id="">
-        <input type="checkbox" name="" id="">
-      </div>
-    </div>
-    <label class="ad__label" for="">Description</label><textarea name="" id="" cols="30" rows="10"></textarea>
-    <label class="ad__label" for="">Responsibilities</label><textarea name="" id="" cols="30" rows="10"></textarea>
-    <label class="ad__label" for="">Minimum qualifications</label><textarea name="" id="" cols="30" rows="10"></textarea>
-    <label class="ad__label" for="">Preferred qualifications</label><textarea name="" id="" cols="30" rows="10"></textarea>
-    <label class="ad__label" for="">Benefits</label><textarea name="" id="" cols="30" rows="10"></textarea>
-    <button class="btn btn--medium">Post</button>
-  </form>
- 
-</section>
 
   <!-- NEWEST ADDS -->
   <section class="newest">
@@ -100,13 +122,20 @@
         Expedita excepturi illo ea. Aliquid obcaecati sunt quas reprehenderit ab sequi assumenda aspernatur asperiores necessitatibus,
         exercitationem a animi unde doloribus?</p>
       </br>
-        <p class="font--light">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid quis possimus placeat fugit dicta fuga ipsam. Omnis similique, excepturi, vero placeat fugiat dolorem nostrum, accusamus deserunt vel consectetur ex adipisci consequuntur quam veritatis ab neque illo labore hic sunt fuga tempora iusto! Aliquid, voluptatum culpa. Laudantium nam error mollitia eum sint, ex nostrum illum distinctio totam consequatur molestiae, pariatur esse voluptatibus unde quaerat. Quaerat dolore maxime accusantium sunt eligendi <mark>
-          quo necessitatibus assumenda odit numquam quis cum quos inventore reprehenderit sit quibusdam nemo officiis aut provident natus, tempore sint! Molestias quis nulla
-        </mark> necessitatibus sapiente dolor nihil eaque repellat inventore sed incidunt a laudantium numquam impedit quia eos, eum vitae rem error labore veniam quos quam voluptatum odit ipsa.</p>
-      <button class="btn btn--medium">LEARN MORE</button>
+      <p class="font--light">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid quis possimus placeat fugit dicta fuga ipsam. Omnis
+        similique, excepturi, vero placeat fugiat dolorem nostrum, accusamus deserunt vel consectetur ex adipisci consequuntur
+        quam veritatis ab neque illo labore hic sunt fuga tempora iusto! Aliquid, voluptatum culpa. Laudantium nam error
+        mollitia eum sint, ex nostrum illum distinctio totam consequatur molestiae, pariatur esse voluptatibus unde quaerat.
+        Quaerat dolore maxime accusantium sunt eligendi
+        <mark>
+          quo necessitatibus assumenda odit numquam quis cum quos inventore reprehenderit sit quibusdam nemo officiis aut provident
+          natus, tempore sint! Molestias quis nulla
+        </mark> necessitatibus sapiente dolor nihil eaque repellat inventore sed incidunt a laudantium numquam impedit quia
+        eos, eum vitae rem error labore veniam quos quam voluptatum odit ipsa.</p>
+      <button class="button button-outline btn--learnmore">LEARN MORE</button>
     </div>
     <div>
-      <img src="./src/assets/phone.png" alt="">
+      <img class="workflow__image" src="./src/assets/phone.png" alt="">
     </div>
   </section>
 
@@ -159,9 +188,8 @@
       <h3 class="subscribe--subtitle">Get weekly top new jobs delivered to your inbox</h3>
       <form class="subscribe__form" action="">
         <input type="email" required placeholder="Your email address">
-        <button class="btn btn--subscribe">SUBSCRIBE</button>
+        <button class="button button-outline">SUBSCRIBE</button>
       </form>
-      <p class="subscribe__description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias est dolorem consequatur, explicabo quae voluptates laudantium. Magnam culpa praesentium vero excepturi sunt. Enim aliquid voluptas dolor et quos, asperiores ea corporis adipisci qui, sunt harum recusandae nihil. Delectus, similique officia?</p>
     </div>
   </section>
 
@@ -170,9 +198,10 @@
   <footer>
     <aside>
       <h3>About</h3>
-      <p class="font--aside">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, facilis minus atque ullam voluptatibus beatae voluptates. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem, fugiat. Lorem ipsum dolor sit. lorem10
-        Libero veniam ab quod?</p>
-      </aside>
+      <p class="font--aside">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, facilis minus atque ullam voluptatibus beatae voluptates.
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem, fugiat. Lorem ipsum dolor sit. lorem10 Libero veniam
+        ab quod?</p>
+    </aside>
     <aside>
       <h3>Company</h3>
       <ul class="footer__links">
@@ -209,12 +238,24 @@
     <p class="footer__copyright">Copyrights © 2017 All Rights Reserved | davedeveloper.eu</p>
     <div>
       <ul class="social">
-        <li class="social__icon"><i class="ion-social-octocat"></i></li>
-        <li class="social__icon"><i class="ion-social-linkedin-outline"></i></li>
-        <li class="social__icon"><i class="ion-social-rss-outline"></i></li>
-        <li class="social__icon"><i class="ion-social-tumblr-outline"></i></li>
-        <li class="social__icon"><i class="ion-social-youtube-outline"></i></li>
-        <li class="social__icon"><i class="ion-social-instagram-outline"></i></li>
+        <li class="social__icon">
+          <i class="ion-social-octocat"></i>
+        </li>
+        <li class="social__icon">
+          <i class="ion-social-linkedin-outline"></i>
+        </li>
+        <li class="social__icon">
+          <i class="ion-social-rss-outline"></i>
+        </li>
+        <li class="social__icon">
+          <i class="ion-social-tumblr-outline"></i>
+        </li>
+        <li class="social__icon">
+          <i class="ion-social-youtube-outline"></i>
+        </li>
+        <li class="social__icon">
+          <i class="ion-social-instagram-outline"></i>
+        </li>
       </ul>
     </div>
   </div>
@@ -227,4 +268,3 @@
 </body>
 
 </html>
-

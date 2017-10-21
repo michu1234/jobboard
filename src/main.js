@@ -9,3 +9,13 @@ new Vue({
   el: '#app',
   render: h => h(App)
 })
+
+let header = new Vue({
+  el: 'header',
+  data() {
+   return {
+    showIt: false,
+    msg: "asdfa"
+   }
+  }
+})
