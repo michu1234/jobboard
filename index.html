@@ -2,269 +2,281 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="src/assets/css/normalize.css">
-  <link rel="stylesheet" href="src/assets/css/milligram.css">
-  <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <link rel="stylesheet" href="src/assets/css/style.css">
-  <title>Job Board Website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="src/assets/css/normalize.css">
+    <link rel="stylesheet" href="src/assets/css/milligram.css">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="src/assets/css/style.css">
+    <title>Job Board Website</title>
 </head>
 
 <body>
-  <!-- HEADER -->
-  <header>
+<!-- HEADER -->
+<header>
     <div class="nav__bar">
-      <div class="header__video">
-        <video width="100%" src="./src/assets/652266352.mp4" autoplay="true" loop="true"></video>
-      </div>
-      <div class="header__image">
-        <img class="header__logo" src="./src/assets/mainlogo.png" alt="" class="logo">
-      </div>
-      <nav>
-        <ul class="nav__list">
-          <li class="nav__list-item">
-            <a href="">Home</a>
-          </li>
-          <li class="nav__list-item">
-            <a href="">Position</a>
-          </li>
-          <li class="nav__list-item">
-            <a href="">Resume</a>
-          </li>
-          <li class="nav__list-item">
-            <a href="">Company</a>
-          </li>
-          <li class="nav__list-item">
-            <a href="">Pages</a>
-          </li>
-        </ul>
-      </nav>
-      <div class="header__button">
-        <button @:click="showIt=!showIt" class="button postAd">Post free ad</button>
-      </div>
+        <div class="header__video">
+            <video width="100%" src="./src/assets/652266352.mp4" autoplay loop></video>
+        </div>
+        <div class="header__image">
+            <img class="header__logo" src="./src/assets/mainlogo.png" alt="">
+        </div>
+        <nav>
+            <ul class="nav__list">
+                <li class="nav__list-item">
+                    <a href="">Home</a>
+                </li>
+                <li class="nav__list-item">
+                    <a href="">Position</a>
+                </li>
+                <li class="nav__list-item">
+                    <a href="">Resume</a>
+                </li>
+                <li class="nav__list-item">
+                    <a href="">Company</a>
+                </li>
+                <li class="nav__list-item">
+                    <a href="">Pages</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="header__button">
+            <button @click="showIt=!showIt" class="button button--postad">Post free ad</button>
+        </div>
     </div>
     <h1>We offer
-      <span class="font--alert">1,259 job</span> vacancies right now!</h1>
+        <span class="font--alert">1,259 job</span> vacancies right now!</h1>
     <p class="header__subtitle">Find your desire one in a minute</p>
 
     <form action="">
-      <label class="ion-ios-search-strong form__label" for="job"></label>
-      <input id="job" type="text" placeholder="Job title, skills or company...">
-      <label class="ion-ios-location-outline form__label" for="city"></label>
-      <input id="city" type="text" placeholder="City, state or zip...">
-      <input class="button-primary btn--form" type="submit" value="Send">
+        <label class="ion-ios-search-strong form__label" for="job"></label>
+        <input id="job" type="text" placeholder="Job title, skills or company...">
+        <label class="ion-ios-location-outline form__label" for="city"></label>
+        <input id="city" type="text" placeholder="City, state or zip...">
+        <input class="button-primary btn--form" type="submit" value="Search">
     </form>
-    <p class="header__description font--neutral">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi doloribus at excepturi deserunt sint tempora adipisci
-      nostrum suscipit ipsa assumenda? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni assumenda alias dicta
-      pariatur aliquid.</p>
+    <p class="header__description font--neutral">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
+        doloribus at excepturi deserunt sint tempora adipisci
+        nostrum suscipit ipsa assumenda? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni assumenda alias
+        dicta
+        pariatur aliquid.</p>
 
-      <section v-if="showIt" class="ad">
-        <h2>Post new ad</h2>
-        <form action="" class="ad__form container">
-          <fieldset>
-            <label for="titleField">Title</label>
-            <input type="text" placeholder="e.g 'Senior front-end developer'" id="titleField">
-            <label for="nameFirm">Firm</label>
-            <input type="text" placeholder="e.g  'Alibaba.com'" id="nameFirm">
-            <label for="Location">Location</label>
-            <input type="text" placeholder="e.g  'China'" id="Location">
-            <label for="ageRangeField">Job type</label>
-            <select id="ageRangeField">
-              <option value="0-13">Permanent</option>
-              <option value="14-17">Temporary</option>
-              <option value="18-23">Contract</option>
-              <option value="24+">Part-time</option>
-            </select>
-            <label for="description">Description</label>
-            <textarea placeholder="You will help XYZ build next-generation web applications like…" id="description"></textarea>
-            <label for="Responsibilities">Responsibilities</label>
-            <textarea placeholder="Build next-generation web applications..." id="Responsibilities"></textarea>
-            <label for="minimumqualifications">Minimum qualifications</label>
-            <textarea placeholder="2 years of relevant work experience..." id="minimumqualifications"></textarea>
-            <label for="preferredqualifications">Preferred qualifications</label>
-            <textarea placeholder="Web application development experience..." id="preferredqualifications"></textarea>
-            <label for="Benefits">Benefits</label>
-            <textarea placeholder="$90,000 - $110,000 / year…" id="Benefits"></textarea>
-            <div class="float-right">
-              <input type="checkbox" id="confirmField">
-              <label class="label-inline" for="confirmField">Send a copy to yourself</label>
-            </div>
-            <input class="button-primary float-left" type="submit" value="Send">
-          </fieldset>
+    <section v-if="showIt" class="ad">
+        <h2 class="ad__header">Post new ad</h2>
+        <form action="" class="ad__form">
+            <fieldset>
+                <label for="titleField">Title</label>
+                <input type="text" placeholder="e.g 'Senior front-end developer'" id="titleField">
+                <label for="nameFirm">Firm</label>
+                <input type="text" placeholder="e.g  'Alibaba.com'" id="nameFirm">
+                <label for="Location">Location</label>
+                <input type="text" placeholder="e.g  'China'" id="Location">
+                <label for="ageRangeField">Job type</label>
+                <select id="ageRangeField">
+                    <option value="0-13">Permanent</option>
+                    <option value="14-17">Temporary</option>
+                    <option value="18-23">Contract</option>
+                    <option value="24+">Part-time</option>
+                </select>
+                <label for="description">Description</label>
+                <textarea placeholder="You will help XYZ build next-generation web applications like…"
+                          id="description"></textarea>
+                <label for="Responsibilities">Responsibilities</label>
+                <textarea placeholder="Build next-generation web applications..." id="Responsibilities"></textarea>
+                <label for="minimumqualifications">Minimum qualifications</label>
+                <textarea placeholder="2 years of relevant work experience..." id="minimumqualifications"></textarea>
+                <label for="preferredqualifications">Preferred qualifications</label>
+                <textarea placeholder="Web application development experience..."
+                          id="preferredqualifications"></textarea>
+                <label for="Benefits">Benefits</label>
+                <textarea placeholder="$90,000 - $110,000 / year…" id="Benefits"></textarea>
+                <div class="float-right">
+                    <input type="checkbox" id="confirmField">
+                    <label class="label-inline" for="confirmField">Send a copy to yourself</label>
+                </div>
+                <input class="button-primary float-left" type="submit" value="Send">
+            </fieldset>
         </form>
-      </section>
+    </section>
 
-  </header>
+</header>
 
-  <!-- NEWEST ADDS -->
-  <section class="newest">
+<!-- NEWEST ADDS -->
+<section class="newest">
     <!-- VUE COMPONENT -->
     <div id="app"></div>
-  </section>
+</section>
 
-  <!-- SUMMARY SECTION -->
+<!-- SUMMARY SECTION -->
 
-  <section class="summary">
+<section class="summary">
     <!-- VUE COMPONENT -->
     <div id="app2"></div>
-  </section>
+</section>
 
-  <!-- WORKFLOW SECTION -->
+<!-- WORKFLOW SECTION -->
 
-  <section class="workflow container">
+<section class="workflow container">
     <div class="wokflow__content">
-      <h3 class="font--neutral">WORKFLOW</h3>
-      <h2>How It Works</h2>
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid mollitia delectus laborum facilis similique accusamus
-        perspiciatis eos ducimus quam laudantium libero alias quibusdam, neque corporis totam rem voluptatum sint harum!
-        Expedita excepturi illo ea. Aliquid obcaecati sunt quas reprehenderit ab sequi assumenda aspernatur asperiores necessitatibus,
-        exercitationem a animi unde doloribus?</p>
-      </br>
-      <p class="font--light">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid quis possimus placeat fugit dicta fuga ipsam. Omnis
-        similique, excepturi, vero placeat fugiat dolorem nostrum, accusamus deserunt vel consectetur ex adipisci consequuntur
-        quam veritatis ab neque illo labore hic sunt fuga tempora iusto! Aliquid, voluptatum culpa. Laudantium nam error
-        mollitia eum sint, ex nostrum illum distinctio totam consequatur molestiae, pariatur esse voluptatibus unde quaerat.
-        Quaerat dolore maxime accusantium sunt eligendi
-        <mark>
-          quo necessitatibus assumenda odit numquam quis cum quos inventore reprehenderit sit quibusdam nemo officiis aut provident
-          natus, tempore sint! Molestias quis nulla
-        </mark> necessitatibus sapiente dolor nihil eaque repellat inventore sed incidunt a laudantium numquam impedit quia
-        eos, eum vitae rem error labore veniam quos quam voluptatum odit ipsa.</p>
-      <button class="button button-outline btn--learnmore">LEARN MORE</button>
+        <h3 class="font--neutral">WORKFLOW</h3>
+        <h2>How It Works</h2>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid mollitia delectus laborum facilis similique
+            accusamus
+            perspiciatis eos ducimus quam laudantium libero alias quibusdam, neque corporis totam rem voluptatum sint
+            harum!
+            Expedita excepturi illo ea. Aliquid obcaecati sunt quas reprehenderit ab sequi assumenda aspernatur
+            asperiores necessitatibus,
+            exercitationem a animi unde doloribus?</p>
+        <br/>
+        <p class="font--light">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid quis possimus placeat
+            fugit dicta fuga ipsam. Omnis
+            similique, excepturi, vero placeat fugiat dolorem nostrum, accusamus deserunt vel consectetur ex adipisci
+            consequuntur
+            quam veritatis ab neque illo labore hic sunt fuga tempora iusto! Aliquid, voluptatum culpa. Laudantium nam
+            error
+            mollitia eum sint, ex nostrum illum distinctio totam consequatur molestiae, pariatur esse voluptatibus unde
+            quaerat.
+            Quaerat dolore maxime accusantium sunt eligendi
+            <mark>
+                quo necessitatibus assumenda odit numquam quis cum quos inventore reprehenderit sit quibusdam nemo
+                officiis aut provident
+                natus, tempore sint! Molestias quis nulla
+            </mark>
+            necessitatibus sapiente dolor nihil eaque repellat inventore sed incidunt a laudantium numquam impedit quia
+            eos, eum vitae rem error labore veniam quos quam voluptatum odit ipsa.
+        </p>
+        <button class="button button-outline btn--learnmore">LEARN MORE</button>
     </div>
     <div>
-      <img class="workflow__image" src="./src/assets/phone.png" alt="">
+        <img class="workflow__image" src="./src/assets/phone.png" alt="">
     </div>
-  </section>
+</section>
 
-  <!-- CATEGORIES SECTION -->
-  <section class="categories">
+<!-- CATEGORIES SECTION -->
+<section class="categories">
     <div class="container">
-      <h3 class="font--neutral">CATEGORIES</h3>
-      <h2>Popular Categories</h2>
-      <p class="categories__description">Here's the most popular categories</p>
-      <div class="categories__content">
-        <article>
-          <i class="ion-android-plane"></i>
-          <h4>Technology</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, tenetur!</p>
-        </article>
-        <article>
-          <i class="ion-android-restaurant"></i>
-          <h4>Technology</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, tenetur!</p>
-        </article>
-        <article>
-          <i class="ion-android-car"></i>
-          <h4>Technology</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, tenetur!</p>
-        </article>
-        <article>
-          <i class="ion-medkit"></i>
-          <h4>Technology</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, tenetur!</p>
-        </article>
-        <article>
-          <i class="ion-scissors"></i>
-          <h4>Technology</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, tenetur!</p>
-        </article>
-        <article>
-          <i class="ion-laptop"></i>
-          <h4>Technology</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, tenetur!</p>
-      </div>
-      </article>
-    </div>
-  </section>
+        <h3 class="font--neutral">CATEGORIES</h3>
+        <h2>Popular Categories</h2>
+        <p class="categories__description">Here's the most popular categories</p>
+        <div class="categories__content">
+            <article>
+                <i class="ion-android-plane"></i>
+                <h4>Technology</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, tenetur!</p>
+            </article>
+            <article>
+                <i class="ion-android-restaurant"></i>
+                <h4>Technology</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, tenetur!</p>
+            </article>
+            <article>
+                <i class="ion-android-car"></i>
+                <h4>Technology</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, tenetur!</p>
+            </article>
+            <article>
+                <i class="ion-medkit"></i>
+                <h4>Technology</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, tenetur!</p>
+            </article>
+            <article>
+                <i class="ion-scissors"></i>
+                <h4>Technology</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, tenetur!</p>
+            </article>
+            <article>
+                <i class="ion-laptop"></i>
+                <h4>Technology</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, tenetur!</p>
+            </article>
+        </div>
+</section>
 
-  <!-- SECTION SUBSCRIBE -->
+<!-- SECTION SUBSCRIBE -->
 
-  <section class="subscribe">
+<section class="subscribe">
     <div class="container">
-      <h2>Subscribe</h2>
-      <h3 class="subscribe--subtitle">Get weekly top new jobs delivered to your inbox</h3>
-      <form class="subscribe__form" action="">
-        <input type="email" required placeholder="Your email address">
-        <button class="button button-outline">SUBSCRIBE</button>
-      </form>
+        <h2>Subscribe</h2>
+        <h3 class="subscribe--subtitle">Get weekly top new jobs delivered to your inbox</h3>
+        <form class="subscribe__form" action="">
+            <input type="email" required placeholder="Your email address">
+            <button class="button button-outline">SUBSCRIBE</button>
+        </form>
     </div>
-  </section>
+</section>
 
-  <!-- FOOTER -->
+<!-- FOOTER -->
 
-  <footer>
+<footer>
     <aside>
-      <h3>About</h3>
-      <p class="font--aside">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, facilis minus atque ullam voluptatibus beatae voluptates.
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem, fugiat. Lorem ipsum dolor sit. lorem10 Libero veniam
-        ab quod?</p>
+        <h3>About</h3>
+        <p class="font--aside">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, facilis minus atque ullam
+            voluptatibus beatae voluptates.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem, fugiat. Lorem ipsum dolor sit. lorem10
+            Libero veniam
+            ab quod?</p>
     </aside>
     <aside>
-      <h3>Company</h3>
-      <ul class="footer__links">
-        <li>About us</li>
-        <li>How it works</li>
-        <li>Help center</li>
-        <li>Privacy policy</li>
-        <li>Contact us</li>
-      </ul>
+        <h3>Company</h3>
+        <ul class="footer__links">
+            <li>About us</li>
+            <li>How it works</li>
+            <li>Help center</li>
+            <li>Privacy policy</li>
+            <li>Contact us</li>
+        </ul>
     </aside>
     <aside>
-      <h3>Company</h3>
-      <ul class="footer__links">
-        <li>Everything about us</li>
-        <li>How it works today</li>
-        <li>Help center</li>
-        <li>Privacy policy</li>
-        <li>Contact us NOW!</li>
-      </ul>
+        <h3>Company</h3>
+        <ul class="footer__links">
+            <li>Everything about us</li>
+            <li>How it works today</li>
+            <li>Help center</li>
+            <li>Privacy policy</li>
+            <li>Contact us NOW!</li>
+        </ul>
     </aside>
     <aside>
-      <h3>Trending Jobs</h3>
-      <ul class="footer__trending">
-        <li>Front-end developer</li>
-        <li>Android developer</li>
-        <li>iOS developer</li>
-        <li>Full stack developer</li>
-        <li>Project administrator</li>
-      </ul>
+        <h3>Trending Jobs</h3>
+        <ul class="footer__trending">
+            <li>Front-end developer</li>
+            <li>Android developer</li>
+            <li>iOS developer</li>
+            <li>Full stack developer</li>
+            <li>Project administrator</li>
+        </ul>
     </aside>
-  </footer>
-  <div class="footer__bar">
+</footer>
+<div class="footer__bar">
     <hr>
     <p class="footer__copyright">Copyrights © 2017 All Rights Reserved | davedeveloper.eu</p>
     <div>
-      <ul class="social">
-        <li class="social__icon">
-          <i class="ion-social-octocat"></i>
-        </li>
-        <li class="social__icon">
-          <i class="ion-social-linkedin-outline"></i>
-        </li>
-        <li class="social__icon">
-          <i class="ion-social-rss-outline"></i>
-        </li>
-        <li class="social__icon">
-          <i class="ion-social-tumblr-outline"></i>
-        </li>
-        <li class="social__icon">
-          <i class="ion-social-youtube-outline"></i>
-        </li>
-        <li class="social__icon">
-          <i class="ion-social-instagram-outline"></i>
-        </li>
-      </ul>
+        <ul class="social">
+            <li class="social__icon">
+                <i class="ion-social-octocat"></i>
+            </li>
+            <li class="social__icon">
+                <i class="ion-social-linkedin-outline"></i>
+            </li>
+            <li class="social__icon">
+                <i class="ion-social-rss-outline"></i>
+            </li>
+            <li class="social__icon">
+                <i class="ion-social-tumblr-outline"></i>
+            </li>
+            <li class="social__icon">
+                <i class="ion-social-youtube-outline"></i>
+            </li>
+            <li class="social__icon">
+                <i class="ion-social-instagram-outline"></i>
+            </li>
+        </ul>
     </div>
-  </div>
+</div>
 
 
-
-
-
-  <script src="/dist/build.js"></script>
+<script src="/dist/build.js"></script>
 </body>
 
 </html>

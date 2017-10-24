@@ -65,7 +65,7 @@ html {
 
 body {
     background-color: rgb(255, 255, 255);
-    font-family: 'Raleway';
+    font-family: 'Raleway', sans-serif;
     color: rgb(0, 53, 97);
 }
 
@@ -87,7 +87,7 @@ nav {
 }
 
 h1 {
-    font-family: 'Oswald';
+    font-family: 'Oswald', sans-serif;
     font-size: 3.7rem;
     align-self: center;
     margin: 25vh auto 20px auto;
@@ -99,7 +99,7 @@ h2 {
 }
 
 h3 {
-    font-size: 1.6 rem;
+    font-size: 1.6rem;
 }
 
 h3::before {
@@ -129,7 +129,6 @@ p {
 ul {
     list-style: none;
     margin: 0;
-    padding: 0;
     line-height: 30px;
     padding: 10px 0 0 10px;
 }
@@ -140,17 +139,16 @@ li {
 
 form {
     align-self: center;
-    margin: 30px auto auto auto;
+    margin: 0 auto auto auto;
 }
 
 input[type="text"] {
     height: 50px;
-    width: 400px;
+    width: 430px;
     margin-right: -4px;
-    border: .3px solid rgb(204, 204, 204);
+    border: 1px solid rgb(204, 204, 204);
     outline: none;
     /* box-shadow: 0 0 5px 1px rgb(255, 255, 255); */
-    border-width: 1px;
     padding-left: 39px;
     color: rgb(185, 185, 185);
     position: relative;
@@ -203,10 +201,10 @@ mark {
 }
 
 .ad {
-    top: 0;
+    top: 50px;
+    right: 30px;
     position: absolute;
     z-index: 10000;
-    padding-top: 30px;
     max-width: 60%;
 }
 
@@ -277,8 +275,7 @@ footer {
 }
 
 .ad__form {
-    padding: 30px;
-    padding-right: 50px;
+    padding: 30px 50px 30px 30px;
     background-color: #ffffff;
     box-shadow: 0 20px 100px rgb(97, 97, 97),
                 0 50px 100px rgb(146, 146, 146);
@@ -330,14 +327,16 @@ footer {
     text-align: left;
     font-size: 2rem;
     padding: 17px 0 5px 0;
-    padding: 17px 0 5px 0;
 }
 
+.ad__header {
+    display: inline-block;
+}
 
 .btn {
-        -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
-        -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
-        box-shadow:inset 0px 1px 0px 0px #ffffff;
+        -moz-box-shadow:inset 0 1px 0 0 #ffffff;
+        -webkit-box-shadow:inset 0px 1px 0 0 #ffffff;
+        box-shadow:inset 0 1px 0 0 #ffffff;
         background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
         background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
         filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
@@ -358,14 +357,14 @@ footer {
         border:1px solid #dcdcdc;
         display:inline-block;
         color:#777777;
-        font-family:arial;
+        font-family: 'Arial', sans-serif;
         font-size:15px;
         font-weight:bold;
         font-style:normal;
     height:50px;
         text-decoration:none;
         text-align:center;
-        text-shadow:1px 1px 0px #ffffff;
+        text-shadow:1px 1px 0 #ffffff;
     }
     
     .btn:hover {
@@ -406,7 +405,7 @@ aside {
     min-width: 300px;
     max-height: 330px;
     margin: 25px auto;
-    padding: 10px 4% 10px 4%;
+    padding: 30px 4% 10px 4%;
     box-sizing: border-box;
     color: rgb(241, 241, 241);
 }
@@ -458,6 +457,8 @@ list-style-type: disc;
 /***********/
 form .btn--form {
     height: 50px;
+    margin: 0 0 0 2px;
+    padding-bottom: 2px;
     background-color: #9b4dca;
     border-color: #9b4dca;
 }
@@ -468,7 +469,7 @@ form .btn--form {
 }
 
 .font--light {
-    font-family: 'Raleway-Light'
+    font-family: 'Raleway-Light', sans-serif;
 }
 
 .font--alert {
@@ -495,6 +496,10 @@ form .btn--form {
 
 .btn--learnmore {
     margin-top: 30px;
+}
+
+.button--postad {
+    z-index: 100;
 }
 
 /*state*/
