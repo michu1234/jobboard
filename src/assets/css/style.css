@@ -90,7 +90,7 @@ h1 {
     font-family: 'Oswald', sans-serif;
     font-size: 3.7rem;
     align-self: center;
-    margin: 25vh auto 20px auto;
+    margin: 20vh auto 10px auto;
 }
 
 h2 {
@@ -298,6 +298,7 @@ footer {
 .header__subtitle {
     align-self: center;
     font-size: 2rem;
+    margin-bottom: 30px;
 }
 
 .header__description {
