@@ -75,7 +75,8 @@
 <!-- NEW AD INPUT -->
 
  <button @click="showIt=!showIt" class="button button--postad">Post free ad</button>
-  <section v-if="showIt" class="ad">
+ <transition>
+  <section v-show="showIt" class="ad">
         <h2 class="ad__header">Post new ad</h2>
         <form action="" class="ad__form">
             <fieldset>
@@ -114,7 +115,7 @@
             </fieldset>
         </form>
     </section>
-
+</transition>
 
 
 
@@ -317,5 +318,12 @@
 .newest__wrapper {
   display: flex;
 }
+
+@media screen and (max-width: 700px)  {
+  .container {
+    min-width: 100%;
+  }
+}
+
 
 </style>
