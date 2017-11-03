@@ -501,6 +501,9 @@ form .btn--form {
 
 .button--postad {
     z-index: 100;
+    position: absolute;
+    right: 30px;
+    top: 10px;
 }
 
 /*state*/

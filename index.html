@@ -42,7 +42,6 @@
             </ul>
         </nav>
         <div class="header__button">
-            <button @click="showIt=!showIt" class="button button--postad">Post free ad</button>
         </div>
     </div>
     <h1>We offer
@@ -61,44 +60,6 @@
         nostrum suscipit ipsa assumenda? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni assumenda alias
         dicta
         pariatur aliquid.</p>
-
-    <section v-if="showIt" class="ad">
-        <h2 class="ad__header">Post new ad</h2>
-        <form action="" class="ad__form">
-            <fieldset>
-                <label for="titleField">Title</label>
-                <input type="text" placeholder="e.g 'Senior front-end developer'" id="titleField">
-                <label for="nameFirm">Firm</label>
-                <input type="text" placeholder="e.g  'Alibaba.com'" id="nameFirm">
-                <label for="Location">Location</label>
-                <input type="text" placeholder="e.g  'China'" id="Location">
-                <label for="ageRangeField">Job type</label>
-                <select id="ageRangeField">
-                    <option value="0-13">Permanent</option>
-                    <option value="14-17">Temporary</option>
-                    <option value="18-23">Contract</option>
-                    <option value="24+">Part-time</option>
-                </select>
-                <label for="description">Description</label>
-                <textarea placeholder="You will help XYZ build next-generation web applications like…"
-                          id="description"></textarea>
-                <label for="Responsibilities">Responsibilities</label>
-                <textarea placeholder="Build next-generation web applications..." id="Responsibilities"></textarea>
-                <label for="minimumqualifications">Minimum qualifications</label>
-                <textarea placeholder="2 years of relevant work experience..." id="minimumqualifications"></textarea>
-                <label for="preferredqualifications">Preferred qualifications</label>
-                <textarea placeholder="Web application development experience..."
-                          id="preferredqualifications"></textarea>
-                <label for="Benefits">Benefits</label>
-                <textarea placeholder="$90,000 - $110,000 / year…" id="Benefits"></textarea>
-                <div class="float-right">
-                    <input type="checkbox" id="confirmField">
-                    <label class="label-inline" for="confirmField">Send a copy to yourself</label>
-                </div>
-                <input class="button-primary float-left" type="submit" value="Send">
-            </fieldset>
-        </form>
-    </section>
 
 </header>
 

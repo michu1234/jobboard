@@ -4,7 +4,56 @@
       <h1>{{ msg }}</h1>
       <h2>Recent Jobs</h2>
       <ul class="newest__list">
-          <li class="newest__list-item" v-for="job in jobInfo">
+          <li @click="showDetails=!showDetails" class="newest__list-item" :key="index" v-for="(job, index) in jobInfo">
+          
+
+
+
+
+                <div class="newest__wrapper">
+                  <div class="newest__logo">
+                    <img :src="job.logo" alt="" />
+                  </div>
+                  <div class="">
+                    <h4>{{job.title}}</h4>
+                    <h5 class="font--alert">{{job.firm}}</h5>
+                  </div>
+                  <div class="newest__details">
+                    <p>{{job.location}}</p>
+                    <p class="newest__badge">{{job.details}}</p>
+                  </div>
+    
+                </div>
+  
+
+                   <div v-if="showDetails" class="newest__description">
+                    <p><span class="font--bold">Description:</span><br/> {{job.description}}</p>
+                    <br/>
+                    <p class="newest__badge"><span class="font--bold">Responsibilities:</span><br/> {{job.responsibilities}}</p>
+                     <br/>
+<p class="newest__badge"><span class="font--bold">Minimum qualifications:</span><br/> {{job.minqualifications}}</p>
+
+ <br/>
+<p class="newest__badge"><span class="font--bold">Preferable  qualifications:</span><br/> {{job.prefqualifications}}</p>
+ <br/>
+
+<p class="newest__badge"><span class="font--bold">Benefits:</span><br/> {{job.benefits}}</p>
+
+
+
+
+
+                  </div>
+  
+               
+  
+   
+
+
+          </li>
+      </ul>
+       <ul class="newest__list">
+          <li class="newest__list-item" v-for="job in jobsAdded">
            <a :href="job.url">
               <div class="newest__logo">
                 <img :src="job.logo" alt="" />
@@ -22,19 +71,93 @@
       </ul>
       <button class="btn btn__medium">Browse all jobs</button>
     </div>
+
+<!-- NEW AD INPUT -->
+
+ <button @click="showIt=!showIt" class="button button--postad">Post free ad</button>
+  <section v-if="showIt" class="ad">
+        <h2 class="ad__header">Post new ad</h2>
+        <form action="" class="ad__form">
+            <fieldset>
+                <label for="titleField">Title</label>
+                <input v-model="ADDtitle" type="text" placeholder="e.g 'Senior front-end developer'" id="titleField">
+                <label for="nameFirm">Firm</label>
+                <input v-model="ADDfirm" type="text" placeholder="e.g  'Alibaba.com'" id="nameFirm">
+                <label for="Location">Location</label>
+                <input v-model="ADDlocation" type="text" placeholder="e.g  'China'" id="Location">
+                <label for="Location">Logo (url)</label>
+                <input v-model="ADDlogo" type="text" placeholder="e.g  'China'" id="Location">
+                <label for="ageRangeField">Job type</label>
+                <select v-model="ADDdetails" id="ageRangeField">
+                    <option value="Permanent">Permanent</option>
+                    <option value="Temporary">Temporary</option>
+                    <option value="Contract">Contract</option>
+                    <option value="Part-time">Part-time</option>
+                </select>
+                <label for="description">Description</label>
+                <textarea v-model="ADDdescription" placeholder="You will help XYZ build next-generation web applications like…"
+                          id="description"></textarea>
+                <label for="Responsibilities">Responsibilities</label>
+                <textarea placeholder="Build next-generation web applications..." id="Responsibilities"></textarea>
+                <label for="minimumqualifications">Minimum qualifications</label>
+                <textarea placeholder="2 years of relevant work experience..." id="minimumqualifications"></textarea>
+                <label for="preferredqualifications">Preferred qualifications</label>
+                <textarea placeholder="Web application development experience..."
+                          id="preferredqualifications"></textarea>
+                <label for="Benefits">Benefits</label>
+                <textarea placeholder="$90,000 - $110,000 / year…" id="Benefits"></textarea>
+                <div class="float-right">
+                    <input type="checkbox" id="confirmField">
+                    <label class="label-inline" for="confirmField">Send a copy to yourself</label>
+                </div>
+                <input @click.prevent="pushNewAdd" class="button-primary float-left" type="submit" value="Send">
+            </fieldset>
+        </form>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   </div>
 </template>
 
 <script>
-  import {
-    namesRef
-  } from './firebase';
+
 
 
   export default {
     name: 'app',
     data() {
       return {
+
+// input binding
+
+          ADDlogo: "",
+          ADDtitle: "",
+          ADDfirm: "",
+          ADDlocation: "",
+          ADDdetails: "",
+          ADDurl: "",
+          ADDdescription: '',
+          ADDresponsibilities: '',
+          ADDminqualifications: '',
+          ADDprefqualifications: '',
+          ADDbenefits: '',
+
+// input prototype
+        showDetails: false,
+        showIt: false,
         msg: 'LATEST',
         jobInfo: [{
           logo: "http://thetheme.io/thejobs/assets/img/logo-google.jpg",
@@ -42,16 +165,63 @@
           firm: "Google",
           location: "Warsaw",
           details: "Full-Time",
-          url: "http://google.com"
+          url: "http://google.com",
+          description: 'An exciting permanent position for an experienced Front-end Developer (with JavaScript experience) for a telecommunications technology company in Buckinghamshire. You will form part of the development team providing new applications for touch-screen and traditional web deployment.',
+          responsibilities: '** Extensive JavaScript Development, UI Development, Building real-time web applications, multi-platform and multi-media,applications.',
+          minqualifications: ' HTML5, CSS, JavaScript, AngularJS, jQuery, PHP and MySQL are ideal but not essential',
+          prefqualifications: 'Strong background in web product development plus hands on experience in JavaScript, Typescript, HTML and CSS Experienced in JavaScript frameworks like Angular JS, Angular 2 and React. Well versed in web based applications, applications servers, HTTP Protocol and web services. Skilled at debugging front end applications using cross browsing techniques.',
+          benefits: 'The successful Front-end Developer will receive a fully comprehensive packet including: £40,000 - £50,000 basic salary - company benefits, including Stock Options, Pension contributions and Healthcare. Front-end Developer (JavaScript), Buckinghamshire, Permanent, £40,000 - £50,000 per annum.'
         }, {
           logo: "http://thetheme.io/thejobs/assets/img/logo-google.jpg",
           title: "Full Stack Developer",
           firm: "Google",
           location: "Warsaw",
           details: "Full-Time",
-          url: "http://google.com"
+          url: "http://google.com",
+          description: '',
+          responsibilities: '',
+          minqualifications: '',
+          prefqualifications: '',
+          benefits: ''
+        }],
+        jobsAdded: [{
+          logo: "http://thetheme.io/thejobs/assets/img/logo-google.jpg",
+          title: "Full Stack Developer",
+          firm: "Google",
+          location: "Warsaw",
+          details: "Full-Time",
+          url: "http://google.com",
+          description: '',
+          responsibilities: '',
+          minqualifications: '',
+          prefqualifications: '',
+          benefits: ''
         }]
       }
+    },
+    methods: {
+        pushNewAdd() {
+          this.jobsAdded.push({
+          logo: this.ADDlogo,
+          title: this.ADDtitle,
+          firm: this.ADDfirm,
+          location: this.ADDlocation,
+          details: this.ADDdetails,
+          url: this.ADDurl,
+          description: this.ADDdescription,
+          responsibilities: this.ADDresponsibilities,
+          minqualifications: this.ADDminqualifications,
+          prefqualifications: this.ADDprefqualifications,
+          benefits: this.ADDbenefits,
+           });
+        }
+    },
+    created: function() {
+      localStorage.setItem('testObject', JSON.stringify(this.jobInfo));
+      console.log(localStorage.getItem('testObject'));
+
+
+
     }
   }
 </script>
@@ -93,12 +263,11 @@
   }
 
   li:hover {
-    outline: 1px solid red;
+    outline: 1px solid #ca4d87;
     transition: .6s;
   }
 
   a {
-   display: flex;
    width: 100%;
   }
 
@@ -117,12 +286,36 @@
     margin-top: 10px;
   }
 
+  .font--bold {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+
   .newest__list-item {
     border-bottom: 1px dotted lightgray;
+    cursor: pointer;
   }
 
   .newest__details {
     margin-left: auto;
     padding: 6px;
   }
+
+
+
+  .newest__logo {
+    margin-right: 10px;
+  }
+  
+  .newest__description {
+    margin-left: auto;
+    padding: 6px;
+    border-top: 1px dashed lightgray;
+    text-align: left;
+    max-width: 80%;
+  }
+.newest__wrapper {
+  display: flex;
+}
+
 </style>
