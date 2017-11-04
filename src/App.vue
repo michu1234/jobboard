@@ -4,7 +4,7 @@
       <h1>{{ msg }}</h1>
       <h2>Recent Jobs</h2>
       <ul class="newest__list">
-        <li class="newest__list-item" :key="index" v-for="(job, index) in jobInfo">
+        <li class="newest__list-item background--purple" :key="index" v-for="(job, index) in jobInfo">
           <div @click="showDetails(job)" class="newest__wrapper">
             <div class="newest__logo">
               <img :src="job.logo || imagePlaceholder" alt="" />
@@ -42,23 +42,52 @@
           </div>
         </li>
       </ul>
-      <ul class="newest__list">
-        <li class="newest__list-item" v-for="(job, index) in jobsAdded" :key="index">
-          <div class="newest__logo">
-            <img :src="job.logo || imagePlaceholder" alt="" />
+
+
+      <ul v-if="testLocalStorage" class="newest__list">
+        <li class="newest__list-item" :key="index" v-for="(job, index) in jobsAdded">
+          <div @click="showDetails(job)" class="newest__wrapper">
+            <div class="newest__logo">
+              <img :src="job.logo || imagePlaceholder" alt="" />
+            </div>
+            <div class="">
+              <h4>{{job.title}}</h4>
+              <h5 class="font--alert">{{job.firm}}</h5>
+            </div>
+            <div class="newest__details">
+              <p>{{job.location}}</p>
+              <p class="newest__badge">{{job.details}}</p>
+            </div>
           </div>
-          <div class="">
-            <h4>{{job.title}}</h4>
-            <h5 class="font--alert">{{job.firm}}</h5>
-          </div>
-          <div class="newest__details">
-            <p>{{job.location}}</p>
-            <p class="newest__badge">{{job.details}}</p>
+          <div :class="{'active': job.clicked, 'newest__description': true}">
+            <p>
+              <span class="font--bold">Description:</span>
+              <br/> {{job.description}}</p>
+            <br/>
+            <p class="newest__badge">
+              <span class="font--bold">Responsibilities:</span>
+              <br/> {{job.responsibilities}}</p>
+            <br/>
+            <p class="newest__badge">
+              <span class="font--bold">Minimum qualifications:</span>
+              <br/> {{job.minqualifications}}</p>
+            <br/>
+            <p class="newest__badge">
+              <span class="font--bold">Preferable qualifications:</span>
+              <br/> {{job.prefqualifications}}</p>
+            <br/>
+
+            <p class="newest__badge">
+              <span class="font--bold">Benefits:</span>
+              <br/> {{job.benefits}}</p>
           </div>
         </li>
       </ul>
       <button class="button button-outline btn__medium">Browse all jobs</button>
     </div>
+
+
+
 
     <!-- NEW AD INPUT -->
 
@@ -75,7 +104,7 @@
             <label for="Location">Location</label>
             <input v-model="ADDlocation" type="text" placeholder="e.g  'China'" id="Location">
             <label for="Location">Logo (url)</label>
-            <input v-model="ADDlogo" type="text" placeholder="e.g  'China'" id="Location">
+            <input v-model="ADDlogo" type="text" placeholder="e.g  http://images.google.com/.../google.png" id="Location">
             <label for="ageRangeField">Job type</label>
             <select v-model="ADDdetails" id="ageRangeField">
               <option value="Permanent">Permanent</option>
@@ -86,13 +115,13 @@
             <label for="description">Description</label>
             <textarea v-model="ADDdescription" placeholder="You will help XYZ build next-generation web applications like…" id="description"></textarea>
             <label for="Responsibilities">Responsibilities</label>
-            <textarea placeholder="Build next-generation web applications..." id="Responsibilities"></textarea>
+            <textarea v-model="ADDresponsibilities" placeholder="Build next-generation web applications..." id="Responsibilities"></textarea>
             <label for="minimumqualifications">Minimum qualifications</label>
-            <textarea placeholder="2 years of relevant work experience..." id="minimumqualifications"></textarea>
+            <textarea v-model="ADDminqualifications" placeholder="2 years of relevant work experience..." id="minimumqualifications"></textarea>
             <label for="preferredqualifications">Preferred qualifications</label>
-            <textarea placeholder="Web application development experience..." id="preferredqualifications"></textarea>
+            <textarea v-model="ADDprefqualifications" placeholder="Web application development experience..." id="preferredqualifications"></textarea>
             <label for="Benefits">Benefits</label>
-            <textarea placeholder="$90,000 - $110,000 / year…" id="Benefits"></textarea>
+            <textarea v-model="ADDbenefits" placeholder="$90,000 - $110,000 / year…" id="Benefits"></textarea>
             <div class="float-right">
               <input type="checkbox" id="confirmField">
               <label class="label-inline" for="confirmField">Send a copy to yourself</label>
@@ -144,9 +173,9 @@
           benefits: 'The successful Front-end Developer will receive a fully comprehensive packet including: £40,000 - £50,000 basic salary - company benefits, including Stock Options, Pension contributions and Healthcare. Front-end Developer (JavaScript), Buckinghamshire, Permanent, £40,000 - £50,000 per annum.',
           clicked: false
         }, {
-          logo: "http://thetheme.io/thejobs/assets/img/logo-google.jpg",
-          title: "Full Stack Developer",
-          firm: "Google",
+          logo: "https://cdn1.itcentralstation.com/vendors/logos/original/amazon.com_.png",
+          title: "HTML/CSS Developer",
+          firm: "Amazon",
           location: "Warsaw",
           details: "Full-Time",
           url: "http://google.com",
@@ -157,23 +186,36 @@
           benefits: 'The successful Front-end Developer will receive a fully comprehensive packet including: £40,000 - £50,000 basic salary - company benefits, including Stock Options, Pension contributions and Healthcare. Front-end Developer (JavaScript), Buckinghamshire, Permanent, £40,000 - £50,000 per annum.',
           clicked: false
         }],
-        jobsAdded: [{
-          logo: "http://thetheme.io/thejobs/assets/img/logo-google.jpg",
-          title: "Full Stack Developer",
-          firm: "Google",
-          location: "Warsaw",
-          details: "Full-Time",
-          url: "http://google.com",
-          description: '',
-          responsibilities: '',
-          minqualifications: '',
-          prefqualifications: '',
-          benefits: ''
-        }]
+        jobsAdded: []
+      }
+    },
+    computed: {
+      testLocalStorage: function () {
+        if (localStorage.getItem('jobsAdded')) {
+          return true;
+        } else {
+          return false;
+        }
       }
     },
     methods: {
       pushNewAdd() {
+
+        localStorage.setItem('jobsAdded', JSON.stringify({
+          logo: this.ADDlogo,
+          title: this.ADDtitle,
+          firm: this.ADDfirm,
+          location: this.ADDlocation,
+          details: this.ADDdetails,
+          url: this.ADDurl,
+          description: this.ADDdescription,
+          responsibilities: this.ADDresponsibilities,
+          minqualifications: this.ADDminqualifications,
+          prefqualifications: this.ADDprefqualifications,
+          benefits: this.ADDbenefits,
+          clicked: false
+        }));
+
         this.jobsAdded.push({
           logo: this.ADDlogo,
           title: this.ADDtitle,
@@ -186,6 +228,7 @@
           minqualifications: this.ADDminqualifications,
           prefqualifications: this.ADDprefqualifications,
           benefits: this.ADDbenefits,
+          clicked: false
         });
       },
       showDetails(data) {
@@ -195,14 +238,19 @@
         data.clicked = !data.clicked;
       },
       toggleAll() {
-        this.jobInfo.forEach(function(entry){
+        this.jobInfo.forEach(function (entry) {
           entry.clicked = false;
         })
       }
     },
     created: function () {
-      localStorage.setItem('testObject', JSON.stringify(this.jobInfo));
-      console.log(localStorage.getItem('testObject'));
+
+
+      this.jobsAdded.push(JSON.parse(localStorage.getItem('jobsAdded')));
+
+
+
+      console.log(localStorage.getItem('this.jobsAdded'));
     }
   }
 </script>
@@ -270,6 +318,10 @@
   .font--bold {
     font-weight: bold;
     text-decoration: underline;
+  }
+
+  .background--purple {
+    background: #f8edff;
   }
 
   .newest__list-item {
