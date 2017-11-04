@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div @click.capture="toggleAll" id="app">
     <div class="container">
       <h1>{{ msg }}</h1>
       <h2>Recent Jobs</h2>
@@ -192,6 +192,11 @@
           entry.clicked = false;
         })
         data.clicked = !data.clicked;
+      },
+      toggleAll() {
+        this.jobInfo.forEach(function(entry){
+          entry.clicked = false;
+        })
       }
     },
     created: function () {
@@ -283,6 +288,7 @@
   .newest__description {
     opacity: 0;
     height: 0;
+    pointer-events: none;
     transition: opacity .3s;
   }
 
