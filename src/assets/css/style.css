@@ -171,11 +171,11 @@ i {
 
 video {
     height: 100vh;
-    width: 100%;
+    width: 1333px;
 }
 
 mark {
-    background: rgb(255, 223, 229);
+    background: rgb(232, 230, 255);
 }
 
 ::selection {
@@ -228,11 +228,14 @@ mark {
 
 .subscribe {
     display: flex;
-    background-image: url('../round.png');
-    background-repeat: repeat;
+    background-image: url('../table.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: top right;
     max-height: 400px;
     text-align: center;
-    padding: 30px 0 170px 0;
+    padding: 45px 0 170px 0;
 }
 
 footer {
@@ -240,7 +243,7 @@ footer {
     flex-wrap: wrap;
     background: rgb(49, 49, 49);
     justify-content: space-around;
-    min-height: 400px;
+    min-height: 250px;
     padding-top: 30px;
     border-top: 9px solid rgb(80, 80, 80);
 }
@@ -266,7 +269,7 @@ footer li {
 
 /*block*/
 /***********/
-.wokflow__content {
+.workflow__content {
     display: flex;
     flex-direction: column;
     padding-right: 50px;
@@ -405,7 +408,7 @@ article {
     border: 1px solid lightgray;
     text-align: center;
     flex: 1;
-    min-width: 320px;
+    min-width: 300px;
     min-height: 300px;
     margin: 25px 1%;
     padding: 0 4% 10px 4%;
@@ -422,7 +425,7 @@ aside {
     text-align: center;
     flex: 1;
     min-width: 300px;
-    max-height: 330px;
+    max-height: 250px;
     margin: 25px auto;
     padding: 30px 4% 10px 4%;
     box-sizing: border-box;
@@ -509,6 +512,7 @@ form .btn--form {
     text-align: justify;
 }
 
+
 .subscribe--subtitle {
     margin-top: 0;
 }
@@ -556,11 +560,12 @@ article:hover i {
     border: 2px solid #ffffff;
     border-radius: 100%;
     background-color: #ffffff;
-    color: rgb(195, 195, 195);
+    color: rgb(236, 236, 236);
     width: 60%;
     transition: border-radius .1s;
     will-change: auto;
     transform: scale(1.2) rotate(-20deg);
+    cursor: pointer;
 }
 
 a:link, a:visited, a:hover, a:active {
@@ -608,5 +613,13 @@ padding-bottom: 5px;
     }
 }
 
+@media screen and (max-width: 430px) {
+    .workflow__content {
+        padding: 0;
+    }
+    .container {
+        padding: 0;
+    }
+}
 
 /***********/
