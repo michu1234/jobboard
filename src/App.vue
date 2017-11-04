@@ -7,7 +7,7 @@
         <li class="newest__list-item" :key="index" v-for="(job, index) in jobInfo">
           <div @click="showDetails(job)" class="newest__wrapper">
             <div class="newest__logo">
-              <img :src="job.logo" alt="" />
+              <img :src="job.logo || imagePlaceholder" alt="" />
             </div>
             <div class="">
               <h4>{{job.title}}</h4>
@@ -45,7 +45,7 @@
       <ul class="newest__list">
         <li class="newest__list-item" v-for="(job, index) in jobsAdded" :key="index">
           <div class="newest__logo">
-            <img :src="job.logo" alt="" />
+            <img :src="job.logo || imagePlaceholder" alt="" />
           </div>
           <div class="">
             <h4>{{job.title}}</h4>
@@ -127,6 +127,7 @@
         ADDbenefits: '',
 
         // input prototype
+        imagePlaceholder: 'https://www.dropque.com/assets/placeholder-company-5f3438282f524800f1d49cd2921bb0a56101e1aa16097ebd313b64778fc7c4bd.png',
         showIt: false,
         msg: 'LATEST',
         jobInfo: [{
@@ -289,7 +290,6 @@
     opacity: 0;
     height: 0;
     pointer-events: none;
-    transition: opacity .3s;
   }
 
   .newest__wrapper {
