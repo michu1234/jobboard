@@ -91,7 +91,7 @@
 
     <!-- NEW AD INPUT -->
 
-    <button @click="showIt=!showIt" class="button button--postad">Post free ad</button>
+    <button @click="showIt=!showIt" class="button button--postad button--arrow">Post free ad</button>
     <transition>
       <section v-show="showIt" class="ad">
         <h2 class="ad__header">Post new ad</h2>
@@ -156,6 +156,7 @@
         ADDbenefits: '',
 
         // input prototype
+        testLocalStorage2: false,
         imagePlaceholder: 'https://www.dropque.com/assets/placeholder-company-5f3438282f524800f1d49cd2921bb0a56101e1aa16097ebd313b64778fc7c4bd.png',
         showIt: false,
         msg: 'LATEST',
@@ -190,8 +191,8 @@
       }
     },
     computed: {
-      testLocalStorage: function () {
-        if (localStorage.getItem('jobsAdded')) {
+      testLocalStorage:  () => {
+        if (localStorage.getItem('jobsAdded') || this.jobsAdded) {
           return true;
         } else {
           return false;
@@ -200,7 +201,6 @@
     },
     methods: {
       pushNewAdd() {
-
         localStorage.setItem('jobsAdded', JSON.stringify({
           logo: this.ADDlogo,
           title: this.ADDtitle,
@@ -215,7 +215,6 @@
           benefits: this.ADDbenefits,
           clicked: false
         }));
-
         this.jobsAdded.push({
           logo: this.ADDlogo,
           title: this.ADDtitle,
@@ -230,6 +229,7 @@
           benefits: this.ADDbenefits,
           clicked: false
         });
+        
       },
       showDetails(data) {
         this.jobInfo.forEach(function (entry) {
@@ -250,7 +250,7 @@
 
 
 
-      console.log(localStorage.getItem('this.jobsAdded'));
+      console.log(this.testLocalStorage);
     }
   }
 </script>
@@ -323,6 +323,62 @@
   .background--purple {
     background: #f8edff;
   }
+
+.button--arrow {
+  // content: "";
+  // background: url('./assets/arrow.png') no-repeat;
+  // position: absolute;
+  // left: -20px;
+  // top: 20px;
+  // transform: rotate(-35deg);
+  // filter: hue-rotate(250deg) brightness(3);
+  // display: block;
+  // width: 100px;
+  // height: 200px;
+-webkit-animation-name: bounceIn;
+  animation-name: bounceIn;
+  -webkit-animation-duration: .75s;
+  animation-duration: .75s;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  animation-delay: 1s;
+}
+
+@keyframes bounceIn {
+ 0%, 20%, 40%, 60%, 80%, 100% {
+  -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+  0% {
+  opacity: 0;
+  -webkit-transform: scale3d(.3, .3, .3);
+  transform: scale3d(.3, .3, .3);
+  }
+  20% {
+  -webkit-transform: scale3d(1.1, 1.1, 1.1);
+  transform: scale3d(1.6, 1.6, 1.6);
+  }
+  40% {
+  -webkit-transform: scale3d(.9, .9, .9);
+  transform: scale3d(.9, .9, .9);
+  }
+  60% {
+  opacity: 1;
+  -webkit-transform: scale3d(1.03, 1.03, 1.03);
+  transform: scale3d(1.03, 1.03, 1.03);
+  }
+  80% {
+  -webkit-transform: scale3d(.97, .97, .97);
+  transform: scale3d(.97, .97, .97);
+  }
+  100% {
+  opacity: 1;
+  -webkit-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  }
+}
 
   .newest__list-item {
     border-bottom: 1px dotted lightgray;
