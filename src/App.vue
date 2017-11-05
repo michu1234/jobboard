@@ -44,7 +44,7 @@
       </ul>
 
 
-      <ul v-if="testLocalStorage" class="newest__list">
+      <ul v-if="testLocalStorage2" class="newest__list">
         <li class="newest__list-item" :key="index" v-for="(job, index) in jobsAdded">
           <div @click="showDetails(job)" class="newest__wrapper">
             <div class="newest__logo">
@@ -191,12 +191,19 @@
       }
     },
     computed: {
-      testLocalStorage:  () => {
-        if (localStorage.getItem('jobsAdded') || this.jobsAdded) {
+      testLocalStorage: function () {
+        if (localStorage.getItem('jobsAdded')) {
           return true;
+
         } else {
           return false;
+
         }
+      }
+    },
+    watch: {
+      jobsAdded: function () {
+        this.testLocalStorage2 = true;
       }
     },
     methods: {
@@ -229,7 +236,7 @@
           benefits: this.ADDbenefits,
           clicked: false
         });
-        
+
       },
       showDetails(data) {
         this.jobInfo.forEach(function (entry) {
@@ -244,14 +251,13 @@
       }
     },
     created: function () {
-
-
-      this.jobsAdded.push(JSON.parse(localStorage.getItem('jobsAdded')));
-
-
-
-      console.log(this.testLocalStorage);
-    }
+      if (localStorage.getItem('jobsAdded')) {
+        this.jobsAdded.push(JSON.parse(localStorage.getItem('jobsAdded')));
+      }
+    },
+    // mounted: function() {
+    //    if (localStorage.getItem('jobsAdded') ==)
+    // }
   }
 </script>
 
@@ -324,61 +330,70 @@
     background: #f8edff;
   }
 
-.button--arrow {
-  // content: "";
-  // background: url('./assets/arrow.png') no-repeat;
-  // position: absolute;
-  // left: -20px;
-  // top: 20px;
-  // transform: rotate(-35deg);
-  // filter: hue-rotate(250deg) brightness(3);
-  // display: block;
-  // width: 100px;
-  // height: 200px;
--webkit-animation-name: bounceIn;
-  animation-name: bounceIn;
-  -webkit-animation-duration: .75s;
-  animation-duration: .75s;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-  animation-delay: 1s;
-}
+  .button--arrow {
+    -webkit-animation-name: bounceIn;
+    animation-name: bounceIn;
+    -webkit-animation-duration: .75s;
+    animation-duration: .75s;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    animation-delay: 1s;
+    will-change: auto;
+  }
 
-@keyframes bounceIn {
- 0%, 20%, 40%, 60%, 80%, 100% {
-  -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-  transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  @keyframes bounceIn {
+    0%,
+    20%,
+    40%,
+    60%,
+    80%,
+    100% {
+      -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+      transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+    0% {
+      opacity: 0;
+      -webkit-transform: scale3d(.3, .3, .3);
+      transform: scale3d(.3, .3, .3);
+    }
+    20% {
+      -webkit-transform: scale3d(1.1, 1.1, 1.1);
+      transform: scale3d(1.6, 1.6, 1.6);
+    }
+    40% {
+      -webkit-transform: scale3d(.9, .9, .9);
+      transform: scale3d(.9, .9, .9);
+    }
+    60% {
+      opacity: 1;
+      -webkit-transform: scale3d(1.03, 1.03, 1.03);
+      transform: scale3d(1.03, 1.03, 1.03);
+    }
+    80% {
+      -webkit-transform: scale3d(.97, .97, .97);
+      transform: scale3d(.97, .97, .97);
+    }
+    100% {
+      opacity: 1;
+      -webkit-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1);
+    }
   }
-  0% {
-  opacity: 0;
-  -webkit-transform: scale3d(.3, .3, .3);
-  transform: scale3d(.3, .3, .3);
-  }
-  20% {
-  -webkit-transform: scale3d(1.1, 1.1, 1.1);
-  transform: scale3d(1.6, 1.6, 1.6);
-  }
-  40% {
-  -webkit-transform: scale3d(.9, .9, .9);
-  transform: scale3d(.9, .9, .9);
-  }
-  60% {
-  opacity: 1;
-  -webkit-transform: scale3d(1.03, 1.03, 1.03);
-  transform: scale3d(1.03, 1.03, 1.03);
-  }
-  80% {
-  -webkit-transform: scale3d(.97, .97, .97);
-  transform: scale3d(.97, .97, .97);
-  }
-  100% {
-  opacity: 1;
-  -webkit-transform: scale3d(1, 1, 1);
-  transform: scale3d(1, 1, 1);
-  }
-}
+
+  // .button--arrow {
+  //      // content: "";
+  //   // background: url('./assets/arrow.png') no-repeat;
+  //   // position: absolute;
+  //   // left: -20px;
+  //   // top: 20px;
+  //   // transform: rotate(-35deg);
+  //   // filter: hue-rotate(250deg) brightness(3);
+  //   // display: block;
+  //   // width: 100px;
+  //   // height: 200px;
+  // }
 
   .newest__list-item {
     border-bottom: 1px dotted lightgray;
