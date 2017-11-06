@@ -1,42 +1,22 @@
 /* Table of contents */
-
-
 /********************/
 
 
 /*1. Font Faces*/
-
-
 /*2. Base*/
-
-
 /*3. Layout*/
-
-
 /*4. Component*/
-
-
 /***block*/
-
-
 /***element*/
-
-
 /***modifier*/
-
-
 /***state*/
-
-
 /*5. Media Queries*/
 
 
-/*********************************************************************************/
+/***************************************************/
 
 
 /*FONT FACES*/
-
-
 /***********/
 
 @font-face {
@@ -55,8 +35,6 @@
 
 
 /*BASE*/
-
-
 /***********/
 html {
     font-size: 62.5%;
@@ -133,10 +111,6 @@ ul {
     padding: 10px 0 0 10px;
 }
 
-li {
- 
-}
-
 form {
     align-self: center;
     margin: 0 auto auto auto;
@@ -163,7 +137,6 @@ fieldset > input, fieldset > select, fieldset > textarea {
     margin-bottom: 20px;
 }
 
-
 i {
     font-size: 6.9rem;
     color: #9b4dca;
@@ -182,7 +155,6 @@ mark {
     color: rgb(0, 217, 255); 
     background: rgb(161, 0, 0);
 }
-
 
 
 
@@ -262,13 +234,11 @@ footer li {
 }
 
 /*COMPONENT*/
-
-
 /***********/
-
 
 /*block*/
 /***********/
+
 .workflow__content {
     display: flex;
     flex-direction: column;
@@ -384,16 +354,6 @@ footer li {
         text-shadow:1px 1px 0 #ffffff;
     }
     
-    .btn:hover {
-        background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
-        background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
-
-        background-color:#dfdfdf;
-    }
-    .btn:active {
-        position:relative;
-        top:1px;
-    }
     .workflow__image {
         margin-top: 80px;
         flex-basis: 400%;
@@ -477,6 +437,7 @@ list-style-type: none;
 
 /*modifier*/
 /***********/
+
 form .btn--form {
     height: 50px;
     margin: 0 0 0 2px;
@@ -540,8 +501,6 @@ form .btn--form {
     top: 1px;
 }
 
-.nav__list-item:hover {}
-
 .social__icon:hover {
     transform: scale(1.4) rotate(20deg);
     transition: all .3s;
@@ -580,7 +539,9 @@ box-shadow: 0 8px 20px 0 rgb(241, 241, 241);
 transition: .4s;
 padding-bottom: 5px;
 }
+
 /*MEDIA QUERIES*/
+/***********/
 
 @media screen and (max-width: 800px){
     .nav__list {
@@ -622,4 +583,4 @@ padding-bottom: 5px;
     }
 }
 
-/***********/
+

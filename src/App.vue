@@ -42,8 +42,6 @@
           </div>
         </li>
       </ul>
-
-
       <ul v-if="testLocalStorage2" class="newest__list">
         <li class="newest__list-item" :key="index" v-for="(job, index) in jobsAdded">
           <div @click="showDetails(job)" class="newest__wrapper">
@@ -85,9 +83,6 @@
       </ul>
       <button class="button button-outline btn__medium">Browse all jobs</button>
     </div>
-
-
-
 
     <!-- NEW AD INPUT -->
 
@@ -194,10 +189,8 @@
       testLocalStorage: function () {
         if (localStorage.getItem('jobsAdded')) {
           return true;
-
         } else {
           return false;
-
         }
       }
     },
@@ -236,7 +229,6 @@
           benefits: this.ADDbenefits,
           clicked: false
         });
-
       },
       showDetails(data) {
         this.jobInfo.forEach(function (entry) {
@@ -254,10 +246,7 @@
       if (localStorage.getItem('jobsAdded')) {
         this.jobsAdded.push(JSON.parse(localStorage.getItem('jobsAdded')));
       }
-    },
-    // mounted: function() {
-    //    if (localStorage.getItem('jobsAdded') ==)
-    // }
+    }
   }
 </script>
 
@@ -380,9 +369,7 @@
       -webkit-transform: scale3d(1, 1, 1);
       transform: scale3d(1, 1, 1);
     }
-  }
-
-  // .button--arrow {
+  } // .button--arrow {
   //      // content: "";
   //   // background: url('./assets/arrow.png') no-repeat;
   //   // position: absolute;
@@ -394,7 +381,6 @@
   //   // width: 100px;
   //   // height: 200px;
   // }
-
   .newest__list-item {
     border-bottom: 1px dotted lightgray;
     cursor: pointer;
