@@ -427,6 +427,9 @@
     .button--postad {
       display: none;
     }
+    .ad {
+      display: none;
+    }
     .container {
       padding: 0;
     }
